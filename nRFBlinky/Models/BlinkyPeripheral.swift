@@ -7,14 +7,27 @@
 //
 
 import UIKit
+import AVFoundation
 import CoreBluetooth
 
 class BlinkyPeripheral: NSObject, CBPeripheralDelegate {
     //MARK: - Blinky services and charcteristics Identifiers
     //
-    public static let nordicBlinkyServiceUUID  = CBUUID.init(string: "00001523-1212-EFDE-1523-785FEABCD123")
-    public static let buttonCharacteristicUUID = CBUUID.init(string: "00001524-1212-EFDE-1523-785FEABCD123")
-    public static let ledCharacteristicUUID    = CBUUID.init(string: "00001525-1212-EFDE-1523-785FEABCD123")
+
+    public static let SOUND_SERVICE  = CBUUID.init(string: "000018ff-0000-1000-8000-00805f9b34fb")
+    public static let SOUND_CHARACTERISTIC = CBUUID.init(string: "00002aff-0000-1000-8000-00805f9b34fb")
+    public static let SOUND_CHARACTERISTIC_DESCRIPTOR    = CBUUID.init(string: "00002902-0000-1000-8000-00805f9b34fb")
+    
+    
+    public static let JB_CONFIG_SERVICE_UUID  = CBUUID.init(string: "6e400100-b5a3-f393-e0a9-e50e24dcca9e")
+    public static let JB_FIRMWARE_VERSION_CHARACERISTIC_UUID = CBUUID.init(string: "6e400102-b5a3-f393-e0a9-e50e24dcca9e")
+    public static let LED_CHARACTERISTIC = CBUUID.init(string: "6e400103-b5a3-f393-e0a9-e50e24dcca9e")
+    public static let POWER_CHARACTERISTIC = CBUUID.init(string: "6e400104-b5a3-f393-e0a9-e50e24dcca9e")
+    public static let MAGNET_ADJUST_CHARACTERISTIC = CBUUID.init(string: "6e400105-b5a3-f393-e0a9-e50e24dcca9e")
+    public static let JB_FEEDBACK_CHARACTERISTIC = CBUUID.init(string: "6e400106-b5a3-f393-e0a9-e50e24dcca9e")
+    
+    
+    
     //MARK: - Properties
     //
     public private(set) var basePeripheral      : CBPeripheral
@@ -59,14 +72,15 @@ class BlinkyPeripheral: NSObject, CBPeripheralDelegate {
     public func discoverBlinkyServices() {
         print("Discovering blinky service")
         basePeripheral.delegate = self
-        basePeripheral.discoverServices([BlinkyPeripheral.nordicBlinkyServiceUUID])
+        basePeripheral.discoverServices([BlinkyPeripheral.SOUND_SERVICE])
     }
     
     public func discoverCharacteristicsForBlinkyService(_ aService: CBService) {
-        basePeripheral.discoverCharacteristics([BlinkyPeripheral.buttonCharacteristicUUID,
-                                            BlinkyPeripheral.ledCharacteristicUUID],
+        basePeripheral.discoverCharacteristics([BlinkyPeripheral.SOUND_CHARACTERISTIC,
+                                            BlinkyPeripheral.SOUND_CHARACTERISTIC_DESCRIPTOR],
                                            for: aService)
     }
+    
     
     public func enableButtonNotifications(_ buttonCharacteristic: CBCharacteristic) {
         print("Enabling notifications for button characteristic")
@@ -95,12 +109,26 @@ class BlinkyPeripheral: NSObject, CBPeripheralDelegate {
     }
     
     public func didReceiveButtonNotificationWithValue(_ aValue: Data) {
-        print("Button value changed to: \(aValue[0])")
-        if aValue[0] == 1 {
-            buttonPressHandler?(true)
-        } else {
-            buttonPressHandler?(false)
+        var player:AVAudioPlayer?
+        do {
+            player = try AVAudioPlayer.init(data: aValue)
+            
+            
+            player?.play()
+        } catch let error {
+            print(error.localizedDescription)
         }
+        
+        
+        
+        
+        
+//        print("Button value changed to: \(aValue[0])")
+//        if aValue[0] == 1 {
+//            buttonPressHandler?(true)
+//        } else {
+//            buttonPressHandler?(false)
+//        }
     }
     
     public func turnOnLED() {
@@ -166,8 +194,8 @@ class BlinkyPeripheral: NSObject, CBPeripheralDelegate {
     func peripheral(_ peripheral: CBPeripheral, didUpdateNotificationStateFor characteristic: CBCharacteristic, error: Error?) {
         if characteristic.uuid == buttonCharacteristic?.uuid {
             print("Notification state is now \(characteristic.isNotifying) for Button characteristic")
-            readButtonValue()
-            readLEDValue()
+//            readButtonValue()
+//            readLEDValue()
         } else {
             print("Notification state is now \(characteristic.isNotifying) for an unknown characteristic with UUID: \(characteristic.uuid.uuidString)")
         }
@@ -176,8 +204,9 @@ class BlinkyPeripheral: NSObject, CBPeripheralDelegate {
     func peripheral(_ peripheral: CBPeripheral, didDiscoverServices error: Error?) {
         if let services = peripheral.services {
             for aService in services {
-                if aService.uuid == BlinkyPeripheral.nordicBlinkyServiceUUID {
-                    print("Discovered Blinky service!")
+                print("Discovered Blinky service! \(aService.uuid) \(String(describing: aService.characteristics))")
+                if aService.uuid == BlinkyPeripheral.SOUND_SERVICE {
+                    
                     //Capture and discover all characteristics for the blinky service
                     blinkyService = aService
                     discoverCharacteristicsForBlinkyService(blinkyService!)
@@ -191,13 +220,13 @@ class BlinkyPeripheral: NSObject, CBPeripheralDelegate {
             print("Discovered characteristics for blinky service")
             if let characteristics = service.characteristics {
                 for aCharacteristic in characteristics {
-                    if aCharacteristic.uuid == BlinkyPeripheral.buttonCharacteristicUUID {
-                        print("Discovered Blinky button characteristic")
+                    
+                    print("Discovered Blinky characteristics! \(aCharacteristic.uuid) \(String(describing: aCharacteristic.descriptors))")
+                    if aCharacteristic.uuid == BlinkyPeripheral.SOUND_CHARACTERISTIC {
+                        print("Discovered Blinky Sound characteristic")
                         buttonCharacteristic = aCharacteristic
-                        enableButtonNotifications(buttonCharacteristic!)
-                    } else if aCharacteristic.uuid == BlinkyPeripheral.ledCharacteristicUUID {
-                        print("Discovered Blinky LED characteristic")
-                        ledCharacteristic = aCharacteristic
+                        
+                        peripheral.discoverDescriptors(for: aCharacteristic)
                     }
                 }
             }
@@ -206,6 +235,32 @@ class BlinkyPeripheral: NSObject, CBPeripheralDelegate {
         }
     }
     
+    func peripheral(_ peripheral: CBPeripheral, didDiscoverDescriptorsFor characteristic: CBCharacteristic, error: Error?) {
+        if let descriptors = characteristic.descriptors {
+            for descriptor in descriptors {
+                if descriptor.uuid == BlinkyPeripheral.SOUND_CHARACTERISTIC_DESCRIPTOR {
+//                    enableButtonNotifications(buttonCharacteristic!)
+                    
+                    peripheral.readValue(for: descriptor)
+                }
+            }
+        }
+    }
+    
+    func peripheral(_ peripheral: CBPeripheral, didUpdateValueFor descriptor: CBDescriptor, error: Error?) {
+        
+        
+//        let aValue = descriptor.value as! Data
+//        var player:AVAudioPlayer?
+//        do {
+//            player = try AVAudioPlayer.init(data: aValue)
+//            
+//            
+//            player?.play()
+//        } catch let error {
+//            print(error.localizedDescription)
+//        }
+    }
     func peripheral(_ peripheral: CBPeripheral, didWriteValueFor characteristic: CBCharacteristic, error: Error?) {
         if characteristic == ledCharacteristic {
             peripheral.readValue(for: ledCharacteristic!)
