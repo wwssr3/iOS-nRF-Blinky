@@ -72,7 +72,7 @@ class BlinkyPeripheral: NSObject, CBPeripheralDelegate {
     public func discoverBlinkyServices() {
         print("Discovering blinky service")
         basePeripheral.delegate = self
-        basePeripheral.discoverServices([BlinkyPeripheral.SOUND_SERVICE])
+        basePeripheral.discoverServices(nil)
     }
     
     public func discoverCharacteristicsForBlinkyService(_ aService: CBService) {
@@ -204,7 +204,7 @@ class BlinkyPeripheral: NSObject, CBPeripheralDelegate {
     func peripheral(_ peripheral: CBPeripheral, didDiscoverServices error: Error?) {
         if let services = peripheral.services {
             for aService in services {
-                print("Discovered Blinky service! \(aService.uuid) \(String(describing: aService.characteristics))")
+                print("Discovered Blinky service! \(aService) )")
                 if aService.uuid == BlinkyPeripheral.SOUND_SERVICE {
                     
                     //Capture and discover all characteristics for the blinky service

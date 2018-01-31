@@ -11,31 +11,12 @@
 		30B6644A1FCD6E65003C8B55 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 30B664481FCD6E65003C8B55 /* Main.storyboard */; };
 		30B6644C1FCD6E65003C8B55 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 30B6644B1FCD6E65003C8B55 /* Assets.xcassets */; };
 		30B6644F1FCD6E65003C8B55 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 30B6644D1FCD6E65003C8B55 /* LaunchScreen.storyboard */; };
-		30B6645A1FCD6E65003C8B55 /* nRFBlinkyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30B664591FCD6E65003C8B55 /* nRFBlinkyTests.swift */; };
-		30B664651FCD6E65003C8B55 /* nRFBlinkyUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30B664641FCD6E65003C8B55 /* nRFBlinkyUITests.swift */; };
 		30B664801FCD9638003C8B55 /* RootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30B6647F1FCD9638003C8B55 /* RootViewController.swift */; };
 		30B664831FCDA0EB003C8B55 /* ScannerTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30B664821FCDA0EB003C8B55 /* ScannerTableViewController.swift */; };
 		30B664851FCDA0FC003C8B55 /* BlinkyTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30B664841FCDA0FC003C8B55 /* BlinkyTableViewCell.swift */; };
 		30B664881FCDA2E0003C8B55 /* BlinkyPeripheral.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30B664871FCDA2E0003C8B55 /* BlinkyPeripheral.swift */; };
 		30B6648B1FD1590A003C8B55 /* BlinkyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30B6648A1FD1590A003C8B55 /* BlinkyViewController.swift */; };
 /* End PBXBuildFile section */
-
-/* Begin PBXContainerItemProxy section */
-		30B664561FCD6E65003C8B55 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 30B664391FCD6E65003C8B55 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 30B664401FCD6E65003C8B55;
-			remoteInfo = nRFBlinky;
-		};
-		30B664611FCD6E65003C8B55 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 30B664391FCD6E65003C8B55 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 30B664401FCD6E65003C8B55;
-			remoteInfo = nRFBlinky;
-		};
-/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		304F42E61FDECF050010A446 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Main.strings; sourceTree = "<group>"; };
@@ -45,10 +26,8 @@
 		30B6644B1FCD6E65003C8B55 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		30B6644E1FCD6E65003C8B55 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		30B664501FCD6E65003C8B55 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		30B664551FCD6E65003C8B55 /* nRFBlinkyTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = nRFBlinkyTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		30B664591FCD6E65003C8B55 /* nRFBlinkyTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = nRFBlinkyTests.swift; sourceTree = "<group>"; };
 		30B6645B1FCD6E65003C8B55 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		30B664601FCD6E65003C8B55 /* nRFBlinkyUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = nRFBlinkyUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		30B664641FCD6E65003C8B55 /* nRFBlinkyUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = nRFBlinkyUITests.swift; sourceTree = "<group>"; };
 		30B664661FCD6E65003C8B55 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		30B6647F1FCD9638003C8B55 /* RootViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootViewController.swift; sourceTree = "<group>"; };
@@ -60,20 +39,6 @@
 
 /* Begin PBXFrameworksBuildPhase section */
 		30B6643E1FCD6E65003C8B55 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		30B664521FCD6E65003C8B55 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		30B6645D1FCD6E65003C8B55 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -97,8 +62,6 @@
 			isa = PBXGroup;
 			children = (
 				30B664411FCD6E65003C8B55 /* nRFBlinky.app */,
-				30B664551FCD6E65003C8B55 /* nRFBlinkyTests.xctest */,
-				30B664601FCD6E65003C8B55 /* nRFBlinkyUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -190,42 +153,6 @@
 			productReference = 30B664411FCD6E65003C8B55 /* nRFBlinky.app */;
 			productType = "com.apple.product-type.application";
 		};
-		30B664541FCD6E65003C8B55 /* nRFBlinkyTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 30B6646C1FCD6E65003C8B55 /* Build configuration list for PBXNativeTarget "nRFBlinkyTests" */;
-			buildPhases = (
-				30B664511FCD6E65003C8B55 /* Sources */,
-				30B664521FCD6E65003C8B55 /* Frameworks */,
-				30B664531FCD6E65003C8B55 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				30B664571FCD6E65003C8B55 /* PBXTargetDependency */,
-			);
-			name = nRFBlinkyTests;
-			productName = nRFBlinkyTests;
-			productReference = 30B664551FCD6E65003C8B55 /* nRFBlinkyTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
-		30B6645F1FCD6E65003C8B55 /* nRFBlinkyUITests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 30B6646F1FCD6E65003C8B55 /* Build configuration list for PBXNativeTarget "nRFBlinkyUITests" */;
-			buildPhases = (
-				30B6645C1FCD6E65003C8B55 /* Sources */,
-				30B6645D1FCD6E65003C8B55 /* Frameworks */,
-				30B6645E1FCD6E65003C8B55 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				30B664621FCD6E65003C8B55 /* PBXTargetDependency */,
-			);
-			name = nRFBlinkyUITests;
-			productName = nRFBlinkyUITests;
-			productReference = 30B664601FCD6E65003C8B55 /* nRFBlinkyUITests.xctest */;
-			productType = "com.apple.product-type.bundle.ui-testing";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -239,16 +166,6 @@
 					30B664401FCD6E65003C8B55 = {
 						CreatedOnToolsVersion = 9.1;
 						ProvisioningStyle = Automatic;
-					};
-					30B664541FCD6E65003C8B55 = {
-						CreatedOnToolsVersion = 9.1;
-						ProvisioningStyle = Automatic;
-						TestTargetID = 30B664401FCD6E65003C8B55;
-					};
-					30B6645F1FCD6E65003C8B55 = {
-						CreatedOnToolsVersion = 9.1;
-						ProvisioningStyle = Automatic;
-						TestTargetID = 30B664401FCD6E65003C8B55;
 					};
 				};
 			};
@@ -266,8 +183,6 @@
 			projectRoot = "";
 			targets = (
 				30B664401FCD6E65003C8B55 /* nRFBlinky */,
-				30B664541FCD6E65003C8B55 /* nRFBlinkyTests */,
-				30B6645F1FCD6E65003C8B55 /* nRFBlinkyUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -280,20 +195,6 @@
 				30B6644F1FCD6E65003C8B55 /* LaunchScreen.storyboard in Resources */,
 				30B6644C1FCD6E65003C8B55 /* Assets.xcassets in Resources */,
 				30B6644A1FCD6E65003C8B55 /* Main.storyboard in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		30B664531FCD6E65003C8B55 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		30B6645E1FCD6E65003C8B55 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -313,36 +214,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		30B664511FCD6E65003C8B55 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				30B6645A1FCD6E65003C8B55 /* nRFBlinkyTests.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		30B6645C1FCD6E65003C8B55 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				30B664651FCD6E65003C8B55 /* nRFBlinkyUITests.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		30B664571FCD6E65003C8B55 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 30B664401FCD6E65003C8B55 /* nRFBlinky */;
-			targetProxy = 30B664561FCD6E65003C8B55 /* PBXContainerItemProxy */;
-		};
-		30B664621FCD6E65003C8B55 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 30B664401FCD6E65003C8B55 /* nRFBlinky */;
-			targetProxy = 30B664611FCD6E65003C8B55 /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		30B664481FCD6E65003C8B55 /* Main.storyboard */ = {
@@ -508,72 +380,6 @@
 			};
 			name = Release;
 		};
-		30B6646D1FCD6E65003C8B55 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = P3R8YQEV4L;
-				INFOPLIST_FILE = nRFBlinkyTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.nordicsemi.nRFBlinkyTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/nRFBlinky.app/nRFBlinky";
-			};
-			name = Debug;
-		};
-		30B6646E1FCD6E65003C8B55 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = P3R8YQEV4L;
-				INFOPLIST_FILE = nRFBlinkyTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.nordicsemi.nRFBlinkyTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/nRFBlinky.app/nRFBlinky";
-			};
-			name = Release;
-		};
-		30B664701FCD6E65003C8B55 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = P3R8YQEV4L;
-				INFOPLIST_FILE = nRFBlinkyUITests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.nordicsemi.nRFBlinkyUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = nRFBlinky;
-			};
-			name = Debug;
-		};
-		30B664711FCD6E65003C8B55 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = P3R8YQEV4L;
-				INFOPLIST_FILE = nRFBlinkyUITests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.nordicsemi.nRFBlinkyUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = nRFBlinky;
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -591,24 +397,6 @@
 			buildConfigurations = (
 				30B6646A1FCD6E65003C8B55 /* Debug */,
 				30B6646B1FCD6E65003C8B55 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		30B6646C1FCD6E65003C8B55 /* Build configuration list for PBXNativeTarget "nRFBlinkyTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				30B6646D1FCD6E65003C8B55 /* Debug */,
-				30B6646E1FCD6E65003C8B55 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		30B6646F1FCD6E65003C8B55 /* Build configuration list for PBXNativeTarget "nRFBlinkyUITests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				30B664701FCD6E65003C8B55 /* Debug */,
-				30B664711FCD6E65003C8B55 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
