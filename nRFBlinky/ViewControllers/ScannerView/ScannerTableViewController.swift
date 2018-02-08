@@ -8,6 +8,8 @@
 
 import UIKit
 import CoreBluetooth
+import iOSDFULibrary
+
 
 class ScannerTableViewController: UITableViewController, CBCentralManagerDelegate {
     @IBOutlet var emptyPeripheralsView: UIView!
@@ -24,6 +26,7 @@ class ScannerTableViewController: UITableViewController, CBCentralManagerDelegat
         super.viewDidLoad()
         centralManager = (((UIApplication.shared.delegate) as? AppDelegate)?.centralManager)!
         centralManager.delegate = self
+
     }
 
     override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {

@@ -16,6 +16,7 @@
 		30B664851FCDA0FC003C8B55 /* BlinkyTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30B664841FCDA0FC003C8B55 /* BlinkyTableViewCell.swift */; };
 		30B664881FCDA2E0003C8B55 /* BlinkyPeripheral.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30B664871FCDA2E0003C8B55 /* BlinkyPeripheral.swift */; };
 		30B6648B1FD1590A003C8B55 /* BlinkyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30B6648A1FD1590A003C8B55 /* BlinkyViewController.swift */; };
+		790093F15B5053DB59644BB3 /* Pods_nRFBlinky.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E4622CB95B9A549648639BA0 /* Pods_nRFBlinky.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -35,6 +36,9 @@
 		30B664841FCDA0FC003C8B55 /* BlinkyTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlinkyTableViewCell.swift; sourceTree = "<group>"; };
 		30B664871FCDA2E0003C8B55 /* BlinkyPeripheral.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlinkyPeripheral.swift; sourceTree = "<group>"; };
 		30B6648A1FD1590A003C8B55 /* BlinkyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlinkyViewController.swift; sourceTree = "<group>"; };
+		53957019016E9DA2AE9FD9FF /* Pods-nRFBlinky.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-nRFBlinky.release.xcconfig"; path = "Pods/Target Support Files/Pods-nRFBlinky/Pods-nRFBlinky.release.xcconfig"; sourceTree = "<group>"; };
+		831639A63B02BEA64DA6CFA3 /* Pods-nRFBlinky.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-nRFBlinky.debug.xcconfig"; path = "Pods/Target Support Files/Pods-nRFBlinky/Pods-nRFBlinky.debug.xcconfig"; sourceTree = "<group>"; };
+		E4622CB95B9A549648639BA0 /* Pods_nRFBlinky.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_nRFBlinky.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -42,6 +46,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				790093F15B5053DB59644BB3 /* Pods_nRFBlinky.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -55,6 +60,8 @@
 				30B664581FCD6E65003C8B55 /* nRFBlinkyTests */,
 				30B664631FCD6E65003C8B55 /* nRFBlinkyUITests */,
 				30B664421FCD6E65003C8B55 /* Products */,
+				ADFCABA6011E9571DD1BF8BC /* Pods */,
+				8EFE8BB7AC91EB204CAFB7DC /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -133,6 +140,23 @@
 			path = BlinkyView;
 			sourceTree = "<group>";
 		};
+		8EFE8BB7AC91EB204CAFB7DC /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				E4622CB95B9A549648639BA0 /* Pods_nRFBlinky.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		ADFCABA6011E9571DD1BF8BC /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				831639A63B02BEA64DA6CFA3 /* Pods-nRFBlinky.debug.xcconfig */,
+				53957019016E9DA2AE9FD9FF /* Pods-nRFBlinky.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -140,9 +164,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 30B664691FCD6E65003C8B55 /* Build configuration list for PBXNativeTarget "nRFBlinky" */;
 			buildPhases = (
+				596DF82927CF328FC0186D28 /* [CP] Check Pods Manifest.lock */,
 				30B6643D1FCD6E65003C8B55 /* Sources */,
 				30B6643E1FCD6E65003C8B55 /* Frameworks */,
 				30B6643F1FCD6E65003C8B55 /* Resources */,
+				CD489376299432170FAA4C23 /* [CP] Embed Pods Frameworks */,
+				B4F3E0A2E8E3A46006BB649A /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -199,6 +226,62 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		596DF82927CF328FC0186D28 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-nRFBlinky-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		B4F3E0A2E8E3A46006BB649A /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-nRFBlinky/Pods-nRFBlinky-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		CD489376299432170FAA4C23 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-nRFBlinky/Pods-nRFBlinky-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Zip/Zip.framework",
+				"${BUILT_PRODUCTS_DIR}/iOSDFULibrary/iOSDFULibrary.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Zip.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/iOSDFULibrary.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-nRFBlinky/Pods-nRFBlinky-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		30B6643D1FCD6E65003C8B55 /* Sources */ = {
@@ -346,6 +429,7 @@
 		};
 		30B6646A1FCD6E65003C8B55 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 831639A63B02BEA64DA6CFA3 /* Pods-nRFBlinky.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -364,6 +448,7 @@
 		};
 		30B6646B1FCD6E65003C8B55 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 53957019016E9DA2AE9FD9FF /* Pods-nRFBlinky.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
