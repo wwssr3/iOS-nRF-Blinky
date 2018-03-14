@@ -12,7 +12,7 @@ import iOSDFULibrary
 
 
 
-class NORDFUViewController:UIViewController, NORFileTypeSelectionDelegate, NORFileSelectionDelegate, LoggerDelegate, DFUServiceDelegate, DFUProgressDelegate {
+class NORDFUViewController: NORBaseViewController, NORScannerDelegate, NORFileTypeSelectionDelegate, NORFileSelectionDelegate, LoggerDelegate, DFUServiceDelegate, DFUProgressDelegate {
     
     //MARK: - Class properties
     var selectedPeripheral : CBPeripheral?
@@ -21,9 +21,9 @@ class NORDFUViewController:UIViewController, NORFileTypeSelectionDelegate, NORFi
     var selectedFirmware   : DFUFirmware?
     var selectedFileURL    : URL?
     var isImportingFile = false
-
+    
     //MARK: - UIViewController Outlets
-
+    
     @IBOutlet weak var dfuLibraryVersionLabel: UILabel!
     @IBOutlet weak var fileName: UILabel!
     @IBOutlet weak var fileSize: UILabel!
@@ -37,7 +37,7 @@ class NORDFUViewController:UIViewController, NORFileTypeSelectionDelegate, NORFi
     @IBOutlet weak var uploadPane: UIView!
     @IBOutlet weak var uploadButton: UIButton!
     @IBOutlet weak var progress: UIProgressView!
- 
+    
     //MARK: - UIViewController Actions
     
     @IBAction func aboutButtonTapped(_ sender: AnyObject) {
@@ -56,8 +56,8 @@ class NORDFUViewController:UIViewController, NORFileTypeSelectionDelegate, NORFi
             isImportingFile = false
             self.onFileSelected(withURL: selectedFileURL!)
         }
-
-//        self.dfuLibraryVersionLabel.text = "DFU Library version \(NORAppUtilities.iOSDFULibraryVersion)"
+        
+        //self.dfuLibraryVersionLabel.text = "DFU Library version \(NORAppUtilities.iOSDFULibraryVersion)"
     }
     
     override func viewDidDisappear(_ animated: Bool) {
@@ -70,7 +70,7 @@ class NORDFUViewController:UIViewController, NORFileTypeSelectionDelegate, NORFi
             }
         }
     }
-
+    
     //MARK: - NORScannerDelegate
     func centralManagerDidSelectPeripheral(withManager aManager: CBCentralManager, andPeripheral aPeripheral: CBPeripheral) {
         selectedPeripheral = aPeripheral
@@ -78,11 +78,11 @@ class NORDFUViewController:UIViewController, NORFileTypeSelectionDelegate, NORFi
         deviceName.text = aPeripheral.name
         self.updateUploadButtonState()
     }
-
+    
     //MARK: - NORFileTypeSelectionDelegate
     func onFileTypeSelected(fileType aType: DFUFirmwareType) {
         selectedFirmware = DFUFirmware(urlToBinOrHexFile: selectedFileURL!, urlToDatFile: nil, type: aType)
-    
+        
         print(selectedFirmware?.fileUrl ?? "None")
         if selectedFirmware != nil && selectedFirmware?.fileName != nil {
             fileName.text = selectedFirmware?.fileName
@@ -107,7 +107,7 @@ class NORDFUViewController:UIViewController, NORFileTypeSelectionDelegate, NORFi
             selectedFileURL = nil
             NORDFUConstantsUtility.showAlert(message: "Selected file is not supported")
         }
-    
+        
         updateUploadButtonState()
     }
     
@@ -115,13 +115,13 @@ class NORDFUViewController:UIViewController, NORFileTypeSelectionDelegate, NORFi
         selectedFileURL = nil
         updateUploadButtonState()
     }
-
+    
     //MARK: - NORFileSelectionDelegate
     func onFileImported(withURL aFileURL: URL){
         selectedFileURL = aFileURL
         self.isImportingFile = true
     }
-
+    
     func onFileSelected(withURL aFileURL: URL) {
         selectedFileURL = aFileURL
         selectedFirmware = nil
@@ -153,28 +153,28 @@ class NORDFUViewController:UIViewController, NORFileTypeSelectionDelegate, NORFi
             filetTypeViewController!.delegate   = self
             self.present(navigationController, animated: true, completion:nil)
         }
-
+        
     }
     //MARK: - LoggerDelegate
     func logWith(_ level:LogLevel, message:String){
         var levelString : String?
         switch(level) {
-            case .application:
-                levelString = "Application"
-            case .debug:
-                levelString = "Debug"
-            case .error:
-                levelString = "Error"
-            case .info:
-                levelString = "Info"
-            case .verbose:
-                levelString = "Verbose"
-            case .warning:
-                levelString = "Warning"
+        case .application:
+            levelString = "Application"
+        case .debug:
+            levelString = "Debug"
+        case .error:
+            levelString = "Error"
+        case .info:
+            levelString = "Info"
+        case .verbose:
+            levelString = "Verbose"
+        case .warning:
+            levelString = "Warning"
         }
         print("\(levelString!): \(message)")
     }
-
+    
     //MARK: - DFUServiceDelegate
     func dfuStateDidChange(to state: DFUState) {
         switch state {
@@ -204,14 +204,14 @@ class NORDFUViewController:UIViewController, NORFileTypeSelectionDelegate, NORFi
             self.clearUI()
         }
     }
-
+    
     func dfuError(_ error: DFUError, didOccurWithMessage message: String) {
         if NORDFUConstantsUtility.isApplicationStateInactiveOrBackgrounded() {
             NORDFUConstantsUtility.showBackgroundNotification(message: message)
         }
         self.clearUI()
     }
-
+    
     //MARK: - DFUProgressDelegate
     func dfuProgressDidChange(for part: Int, outOf totalParts: Int, to progress: Int, currentSpeedBytesPerSecond: Double, avgSpeedBytesPerSecond: Double) {
         self.progress.setProgress(Float(progress) / 100.0, animated: true)
@@ -220,31 +220,29 @@ class NORDFUViewController:UIViewController, NORFileTypeSelectionDelegate, NORFi
     
     //MARK: - Segue Navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-            if (segue.identifier == "scan") {
-                // Set this contoller as scanner delegate
-                let aNavigationController = segue.destination as? UINavigationController
-//                let scannerViewController = aNavigationController?.childViewControllers.first
-                    
-//                    as? NORScannerViewController
-//                scannerViewController?.delegate = self
-            } else if segue.identifier == "FileSegue" {
-                let aNavigationController = segue.destination as? UINavigationController
-                let barViewController = aNavigationController?.childViewControllers.first as? UITabBarController
-                let appFilecsVC = barViewController?.viewControllers?.first as? NORAppFilesViewController
-                appFilecsVC?.fileDelegate = self
-                let userFilesVC = barViewController?.viewControllers?.last as? NORUserFilesViewController
-                userFilesVC?.fileDelegate = self
-                
-                if selectedFileURL != nil {
-                    appFilecsVC?.selectedPath = selectedFileURL
-                    userFilesVC?.selectedPath = selectedFileURL
-                }
+        if (segue.identifier == "scan") {
+            // Set this contoller as scanner delegate
+            let aNavigationController = segue.destination as? UINavigationController
+            let scannerViewController = aNavigationController?.childViewControllers.first as? NORScannerViewController
+            scannerViewController?.delegate = self
+        } else if segue.identifier == "FileSegue" {
+            let aNavigationController = segue.destination as? UINavigationController
+            let barViewController = aNavigationController?.childViewControllers.first as? UITabBarController
+            let appFilecsVC = barViewController?.viewControllers?.first as? NORAppFilesViewController
+            appFilecsVC?.fileDelegate = self
+            let userFilesVC = barViewController?.viewControllers?.last as? NORUserFilesViewController
+            userFilesVC?.fileDelegate = self
+            
+            if selectedFileURL != nil {
+                appFilecsVC?.selectedPath = selectedFileURL
+                userFilesVC?.selectedPath = selectedFileURL
             }
+        }
     }
     
     //MARK: - NORDFUViewController implementation
     func handleAboutButtonTapped() {
-//        self.showAbout(message: NORDFUConstantsUtility.getDFUHelpText())
+        self.showAbout(message: NORDFUConstantsUtility.getDFUHelpText())
     }
     
     func handleUploadButtonTapped() {
@@ -272,7 +270,7 @@ class NORDFUViewController:UIViewController, NORFileTypeSelectionDelegate, NORFi
         
         self.present(alert, animated: true, completion: nil)
     }
-
+    
     func registerObservers() {
         if UIApplication.instancesRespond(to: #selector(UIApplication.registerUserNotificationSettings(_:))) {
             UIApplication.shared.registerUserNotificationSettings(UIUserNotificationSettings(types: [.sound, .alert], categories: nil))
@@ -284,7 +282,7 @@ class NORDFUViewController:UIViewController, NORFileTypeSelectionDelegate, NORFi
         NotificationCenter.default.removeObserver(self, name: NSNotification.Name.UIApplicationDidBecomeActive, object: nil)
         NotificationCenter.default.removeObserver(self, name:NSNotification.Name.UIApplicationDidEnterBackground, object: nil)
     }
-
+    
     func applicationDidEnterBackgroundCallback() {
         if dfuController != nil {
             NORDFUConstantsUtility.showBackgroundNotification(message: "Uploading firmware...")
@@ -294,7 +292,7 @@ class NORDFUViewController:UIViewController, NORFileTypeSelectionDelegate, NORFi
     func applicationDidBecomeActiveCallback() {
         UIApplication.shared.cancelAllLocalNotifications()
     }
-
+    
     func updateUploadButtonState() {
         uploadButton.isEnabled = selectedFirmware != nil && selectedPeripheral != nil
     }
@@ -313,7 +311,7 @@ class NORDFUViewController:UIViewController, NORFileTypeSelectionDelegate, NORFi
         DispatchQueue.main.async(execute: {
             self.dfuController        = nil
             self.selectedPeripheral   = nil
-
+            
             self.deviceName.text      = "DEFAULT DFU"
             self.uploadStatus.text    = nil
             self.uploadStatus.isHidden  = true
@@ -340,8 +338,8 @@ class NORDFUViewController:UIViewController, NORFileTypeSelectionDelegate, NORFi
         
         // To start the DFU operation the DFUServiceInitiator must be used
         let initiator = DFUServiceInitiator(centralManager: centralManager!, target: selectedPeripheral!)
-        initiator.forceDfu = UserDefaults.standard.bool(forKey: "dfu_force_dfu")
-        initiator.packetReceiptNotificationParameter = UInt16(UserDefaults.standard.integer(forKey: "dfu_number_of_packets"))
+//        initiator.forceDfu = UserDefaults.standard.bool(forKey: "dfu_force_dfu")
+//        initiator.packetReceiptNotificationParameter = 12
         initiator.logger = self
         initiator.delegate = self
         initiator.progressDelegate = self
@@ -350,5 +348,6 @@ class NORDFUViewController:UIViewController, NORFileTypeSelectionDelegate, NORFi
         uploadButton.setTitle("Cancel", for: UIControlState())
         uploadButton.isEnabled = true
     }
-
+    
 }
+
