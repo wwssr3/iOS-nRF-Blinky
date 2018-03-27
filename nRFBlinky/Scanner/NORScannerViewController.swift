@@ -165,6 +165,7 @@ class NORScannerViewController: UIViewController, CBCentralManagerDelegate, UITa
         //Update cell content
         let scannedPeripheral = peripherals[indexPath.row]
         aCell.textLabel?.text = scannedPeripheral.name()
+
         if scannedPeripheral.isConnected == true {
             aCell.imageView!.image = UIImage(named: "Connected")
         } else {

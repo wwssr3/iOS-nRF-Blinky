@@ -1,15 +1,28 @@
 PODS:
-  - iOSDFULibrary (3.2.1):
-    - Zip (~> 0.7)
-  - Zip (0.8.0)
+  - Charts (3.0.5):
+    - Charts/Core (= 3.0.5)
+  - Charts/Core (3.0.5)
+  - iOSDFULibrary (4.1.2):
+    - Zip (~> 1.0)
+  - IOSThingyLibrary (1.3.2):
+    - iOSDFULibrary (~> 4.0)
+  - Zip (1.1.0)
 
 DEPENDENCIES:
-  - iOSDFULibrary (~> 3.0)
+  - Charts (~> 3)
+  - iOSDFULibrary (~> 4.0)
+  - IOSThingyLibrary (from `/Users/wsr/Documents/IOS-Nordic-Thingy`)
+
+EXTERNAL SOURCES:
+  IOSThingyLibrary:
+    :path: /Users/wsr/Documents/IOS-Nordic-Thingy
 
 SPEC CHECKSUMS:
-  iOSDFULibrary: f9544a7099c914eb5f1002dc58a5ff8c67dbc86d
-  Zip: bb7d8370de00e50699633d91e03f2ec84f1ee437
+  Charts: 45cdc985b764c838b35ee47eb1365d15735f6d1a
+  iOSDFULibrary: 5a3c53b9c8e7a1303ec962c8e7bb4f30b1fd47b1
+  IOSThingyLibrary: 3125b11552a87b5e700ada6cc8f1e4f1e2d3dcf9
+  Zip: 8877eede3dda76bcac281225c20e71c25270774c
 
-PODFILE CHECKSUM: 48c807e2746d051182c228014454e372eb66df92
+PODFILE CHECKSUM: 67eaac0fc54e803315a7f9838dcd6121d6ff8f29
 
-COCOAPODS: 1.3.1
+COCOAPODS: 1.4.0

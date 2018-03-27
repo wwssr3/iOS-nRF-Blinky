@@ -11,6 +11,7 @@
 		102BB8842057CFF7004AAB6F /* NORScannerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 102BB8812057CFF7004AAB6F /* NORScannerDelegate.swift */; };
 		102BB8852057CFF7004AAB6F /* NORScannerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 102BB8822057CFF7004AAB6F /* NORScannerViewController.swift */; };
 		102BB8892057D01D004AAB6F /* NORBaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 102BB8872057D01C004AAB6F /* NORBaseViewController.swift */; };
+		102BB896205A6B8F004AAB6F /* SoundViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 102BB895205A6B8F004AAB6F /* SoundViewController.swift */; };
 		18CEB2B1202C16AB002C1144 /* NORDFUViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18CEB2B0202C16AB002C1144 /* NORDFUViewController.swift */; };
 		18CEB2BB202C16D8002C1144 /* NORAppFilesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18CEB2B3202C16D8002C1144 /* NORAppFilesViewController.swift */; };
 		18CEB2BC202C16D8002C1144 /* NORFilePreselectionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18CEB2B4202C16D8002C1144 /* NORFilePreselectionDelegate.swift */; };
@@ -39,6 +40,7 @@
 		102BB8812057CFF7004AAB6F /* NORScannerDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NORScannerDelegate.swift; sourceTree = "<group>"; };
 		102BB8822057CFF7004AAB6F /* NORScannerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NORScannerViewController.swift; sourceTree = "<group>"; };
 		102BB8872057D01C004AAB6F /* NORBaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NORBaseViewController.swift; sourceTree = "<group>"; };
+		102BB895205A6B8F004AAB6F /* SoundViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SoundViewController.swift; sourceTree = "<group>"; };
 		18CEB2B0202C16AB002C1144 /* NORDFUViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NORDFUViewController.swift; sourceTree = "<group>"; };
 		18CEB2B3202C16D8002C1144 /* NORAppFilesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NORAppFilesViewController.swift; sourceTree = "<group>"; };
 		18CEB2B4202C16D8002C1144 /* NORFilePreselectionDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NORFilePreselectionDelegate.swift; sourceTree = "<group>"; };
@@ -56,10 +58,6 @@
 		30B6644B1FCD6E65003C8B55 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		30B6644E1FCD6E65003C8B55 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		30B664501FCD6E65003C8B55 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		30B664591FCD6E65003C8B55 /* nRFBlinkyTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = nRFBlinkyTests.swift; sourceTree = "<group>"; };
-		30B6645B1FCD6E65003C8B55 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		30B664641FCD6E65003C8B55 /* nRFBlinkyUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = nRFBlinkyUITests.swift; sourceTree = "<group>"; };
-		30B664661FCD6E65003C8B55 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		30B6647F1FCD9638003C8B55 /* RootViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootViewController.swift; sourceTree = "<group>"; };
 		30B664821FCDA0EB003C8B55 /* ScannerTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScannerTableViewController.swift; sourceTree = "<group>"; };
 		30B664841FCDA0FC003C8B55 /* BlinkyTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlinkyTableViewCell.swift; sourceTree = "<group>"; };
@@ -138,8 +136,6 @@
 			isa = PBXGroup;
 			children = (
 				30B664431FCD6E65003C8B55 /* nRFBlinky */,
-				30B664581FCD6E65003C8B55 /* nRFBlinkyTests */,
-				30B664631FCD6E65003C8B55 /* nRFBlinkyUITests */,
 				30B664421FCD6E65003C8B55 /* Products */,
 				ADFCABA6011E9571DD1BF8BC /* Pods */,
 				8EFE8BB7AC91EB204CAFB7DC /* Frameworks */,
@@ -157,6 +153,7 @@
 		30B664431FCD6E65003C8B55 /* nRFBlinky */ = {
 			isa = PBXGroup;
 			children = (
+				102BB895205A6B8F004AAB6F /* SoundViewController.swift */,
 				102BB8862057D01C004AAB6F /* BaseViewController */,
 				102BB87F2057CFF7004AAB6F /* Scanner */,
 				18CEB2AF202C1640002C1144 /* DFU */,
@@ -169,24 +166,6 @@
 				30B664501FCD6E65003C8B55 /* Info.plist */,
 			);
 			path = nRFBlinky;
-			sourceTree = "<group>";
-		};
-		30B664581FCD6E65003C8B55 /* nRFBlinkyTests */ = {
-			isa = PBXGroup;
-			children = (
-				30B664591FCD6E65003C8B55 /* nRFBlinkyTests.swift */,
-				30B6645B1FCD6E65003C8B55 /* Info.plist */,
-			);
-			path = nRFBlinkyTests;
-			sourceTree = "<group>";
-		};
-		30B664631FCD6E65003C8B55 /* nRFBlinkyUITests */ = {
-			isa = PBXGroup;
-			children = (
-				30B664641FCD6E65003C8B55 /* nRFBlinkyUITests.swift */,
-				30B664661FCD6E65003C8B55 /* Info.plist */,
-			);
-			path = nRFBlinkyUITests;
 			sourceTree = "<group>";
 		};
 		30B664791FCD722A003C8B55 /* ViewControllers */ = {
@@ -276,6 +255,7 @@
 				TargetAttributes = {
 					30B664401FCD6E65003C8B55 = {
 						CreatedOnToolsVersion = 9.1;
+						LastSwiftMigration = 0920;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -353,11 +333,15 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-nRFBlinky/Pods-nRFBlinky-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Charts/Charts.framework",
+				"${BUILT_PRODUCTS_DIR}/IOSThingyLibrary/IOSThingyLibrary.framework",
 				"${BUILT_PRODUCTS_DIR}/Zip/Zip.framework",
 				"${BUILT_PRODUCTS_DIR}/iOSDFULibrary/iOSDFULibrary.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Charts.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/IOSThingyLibrary.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Zip.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/iOSDFULibrary.framework",
 			);
@@ -376,6 +360,7 @@
 				102BB8852057CFF7004AAB6F /* NORScannerViewController.swift in Sources */,
 				30B664851FCDA0FC003C8B55 /* BlinkyTableViewCell.swift in Sources */,
 				30B664831FCDA0EB003C8B55 /* ScannerTableViewController.swift in Sources */,
+				102BB896205A6B8F004AAB6F /* SoundViewController.swift in Sources */,
 				18CEB2BF202C16D8002C1144 /* NORFileTypeViewController.swift in Sources */,
 				18CEB2BC202C16D8002C1144 /* NORFilePreselectionDelegate.swift in Sources */,
 				18CEB2C0202C16D8002C1144 /* NORFolderFilesViewController.swift in Sources */,
@@ -530,6 +515,7 @@
 			baseConfigurationReference = 831639A63B02BEA64DA6CFA3 /* Pods-nRFBlinky.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = GPZPR6KP33;
@@ -539,6 +525,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.nordicsemi.nrf-blinky.test";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -549,6 +536,7 @@
 			baseConfigurationReference = 53957019016E9DA2AE9FD9FF /* Pods-nRFBlinky.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = GPZPR6KP33;
