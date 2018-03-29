@@ -14,6 +14,7 @@ import iOSDFULibrary
 class ScannerTableViewController: UITableViewController, CBCentralManagerDelegate {
     @IBOutlet var emptyPeripheralsView: UIView!
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
+
     
     private var centralManager: CBCentralManager!
     private var discoveredPeripherals = [BlinkyPeripheral]()
@@ -26,7 +27,7 @@ class ScannerTableViewController: UITableViewController, CBCentralManagerDelegat
         super.viewDidLoad()
         centralManager = (((UIApplication.shared.delegate) as? AppDelegate)?.centralManager)!
         centralManager.delegate = self
-
+        
     }
 
     override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
@@ -100,7 +101,7 @@ class ScannerTableViewController: UITableViewController, CBCentralManagerDelegat
             print("Central is not powered on")
         } else {
             activityIndicator.startAnimating()
-            centralManager.scanForPeripherals(withServices: nil, options: [CBCentralManagerScanOptionAllowDuplicatesKey : true])
+            centralManager.scanForPeripherals(withServices: [CBUUID.init(string: "000018ff-0000-1000-8000-00805f9b34fb")], options: [CBCentralManagerScanOptionAllowDuplicatesKey : true])
         }
     }
 

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1007B31F20721D58006F3C74 /* SoundViewTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1007B31E20721D58006F3C74 /* SoundViewTableViewController.swift */; };
 		102BB8832057CFF7004AAB6F /* NORScannedPeripheral.swift in Sources */ = {isa = PBXBuildFile; fileRef = 102BB8802057CFF7004AAB6F /* NORScannedPeripheral.swift */; };
 		102BB8842057CFF7004AAB6F /* NORScannerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 102BB8812057CFF7004AAB6F /* NORScannerDelegate.swift */; };
 		102BB8852057CFF7004AAB6F /* NORScannerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 102BB8822057CFF7004AAB6F /* NORScannerViewController.swift */; };
@@ -36,6 +37,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1007B31E20721D58006F3C74 /* SoundViewTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundViewTableViewController.swift; sourceTree = "<group>"; };
 		102BB8802057CFF7004AAB6F /* NORScannedPeripheral.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NORScannedPeripheral.swift; sourceTree = "<group>"; };
 		102BB8812057CFF7004AAB6F /* NORScannerDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NORScannerDelegate.swift; sourceTree = "<group>"; };
 		102BB8822057CFF7004AAB6F /* NORScannerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NORScannerViewController.swift; sourceTree = "<group>"; };
@@ -153,6 +155,7 @@
 		30B664431FCD6E65003C8B55 /* nRFBlinky */ = {
 			isa = PBXGroup;
 			children = (
+				1007B31E20721D58006F3C74 /* SoundViewTableViewController.swift */,
 				102BB895205A6B8F004AAB6F /* SoundViewController.swift */,
 				102BB8862057D01C004AAB6F /* BaseViewController */,
 				102BB87F2057CFF7004AAB6F /* Scanner */,
@@ -375,6 +378,7 @@
 				30B664451FCD6E65003C8B55 /* AppDelegate.swift in Sources */,
 				18CEB2C2202C16D8002C1144 /* NORUserFilesViewController.swift in Sources */,
 				30B6648B1FD1590A003C8B55 /* BlinkyViewController.swift in Sources */,
+				1007B31F20721D58006F3C74 /* SoundViewTableViewController.swift in Sources */,
 				102BB8832057CFF7004AAB6F /* NORScannedPeripheral.swift in Sources */,
 				18CEB2B1202C16AB002C1144 /* NORDFUViewController.swift in Sources */,
 				102BB8892057D01D004AAB6F /* NORBaseViewController.swift in Sources */,
@@ -518,11 +522,11 @@
 				CLANG_ENABLE_MODULES = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = GPZPR6KP33;
+				DEVELOPMENT_TEAM = 87F55S4W8A;
 				INFOPLIST_FILE = nRFBlinky/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.nordicsemi.nrf-blinky.test";
+				PRODUCT_BUNDLE_IDENTIFIER = com.dozecare.test;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -539,11 +543,11 @@
 				CLANG_ENABLE_MODULES = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = GPZPR6KP33;
+				DEVELOPMENT_TEAM = 87F55S4W8A;
 				INFOPLIST_FILE = nRFBlinky/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.nordicsemi.nrf-blinky.test";
+				PRODUCT_BUNDLE_IDENTIFIER = com.dozecare.test;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 3.0;
