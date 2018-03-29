@@ -23,11 +23,11 @@ class BlinkyTableViewCell: UITableViewCell {
 
         if peripheral!.RSSI.decimalValue < -60 {
             peripheralRSSIIcon.image = #imageLiteral(resourceName: "rssi_2")
-        } else if peripheral!.RSSI.decimalValue < -50 {
+        } else if peripheral!.RSSI.decimalValue < -35 {
             peripheralRSSIIcon.image = #imageLiteral(resourceName: "rssi_3")
-        } else if peripheral!.RSSI.decimalValue < -30 {
+        } else if peripheral!.RSSI.decimalValue < -20 {
             peripheralRSSIIcon.image = #imageLiteral(resourceName: "rssi_4")
-        } else {
+        }else {
             peripheralRSSIIcon.image = #imageLiteral(resourceName: "rssi_1")
         }
     }

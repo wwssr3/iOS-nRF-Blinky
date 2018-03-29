@@ -16,7 +16,7 @@ class BlinkyViewController: UITableViewController, CBCentralManagerDelegate {
     @IBOutlet weak var ledStateLabel: UILabel!
     @IBOutlet weak var ledToggleSwitch: UISwitch!
     @IBOutlet weak var buttonStateLabel: UILabel!
-    
+    var strNowTime : String = ""
     @IBAction func ledToggleSwitchDidChange(_ sender: Any) {
         handleSwitchValueChange(newValue: ledToggleSwitch.isOn)
     }
@@ -111,6 +111,12 @@ class BlinkyViewController: UITableViewController, CBCentralManagerDelegate {
         }
         //This is the first time view appears, setup the subviews and dependencies
         setupDependencies()
+        let date = Date()
+        let timeFormatter = DateFormatter()
+        timeFormatter.dateFormat = "yyy-MM-dd 'at' HH:mm:ss.SSS"
+        strNowTime = timeFormatter.string(from: date)
+        
+        
     }
 
     override func viewDidDisappear(_ animated: Bool) {
@@ -133,14 +139,26 @@ class BlinkyViewController: UITableViewController, CBCentralManagerDelegate {
 
     func centralManager(_ central: CBCentralManager, didConnect peripheral: CBPeripheral) {
         if peripheral == blinkyPeripheral.basePeripheral {
-            print("connected to blinky.")
+            print("connected to blinky. \(strNowTime)")
+            
             blinkyPeripheral.discoverBlinkyServices()
         }
     }
 
     func centralManager(_ central: CBCentralManager, didDisconnectPeripheral peripheral: CBPeripheral, error: Error?) {
         if peripheral == blinkyPeripheral.basePeripheral {
-            print("blinky disconnected.")
+            let alertController = UIAlertController(title: strNowTime, message: "确定还是取消", preferredStyle: .alert) // 这里因为控件都不存在改变的可能，所以一律使用let类型.UIAlertControllerStyle可以选择.actionSheet或.alert
+            
+            let cancelAction = UIAlertAction(title: "取消", style: .cancel, handler: nil)
+            let okAction = UIAlertAction(title: "确定", style: .default, handler:{
+                (UIAlertAction) -> Void in
+                print("点击确定事件")
+            })
+            alertController.addAction(cancelAction)
+            alertController.addAction(okAction)// 当添加的UIAlertAction超过两个的时候，会自动变成纵向分布
+            self.present(alertController, animated: true, completion: nil)
+            
+            print("blinky disconnected.\(strNowTime)")
             navigationController?.popToRootViewController(animated: true)
         }
     }

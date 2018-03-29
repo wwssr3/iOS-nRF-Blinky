@@ -119,27 +119,27 @@ class BlinkyPeripheral: NSObject, CBPeripheralDelegate {
 //        print(aValue.count)
         // The pcmFormatInt16 format is not supported in AvAudioPlayerNode
         // Later on we will have to devide all values by Int16.max to get values from -1.0 to 1.0
-        let format = AVAudioFormat(commonFormat: .pcmFormatFloat32, sampleRate: 16000, channels: 1, interleaved: true)
-        
-        engine = AVAudioEngine()
-        player = AVAudioPlayerNode()
-        engine!.attach(player!)
-        engine!.connect(player!, to: engine!.mainMixerNode, format: format)
-        engine!.mainMixerNode.volume = 1.0
-        
-        do {
-            engine!.prepare()
-            try engine!.start()
-        } catch {
-            print("AVAudioEngine.start() error: \(error.localizedDescription)")
-        }
-        player!.play()
-        
-        
-        guard let engine = engine, engine.isRunning else {
-            // Streaming has been already stopped
-            return
-        }
+//        let format = AVAudioFormat(commonFormat: .pcmFormatFloat32, sampleRate: 16000, channels: 1, interleaved: true)
+//        
+//        engine = AVAudioEngine()
+//        player = AVAudioPlayerNode()
+//        engine!.attach(player!)
+//        engine!.connect(player!, to: engine!.mainMixerNode, format: format)
+//        engine!.mainMixerNode.volume = 1.0
+//        
+//        do {
+//            engine!.prepare()
+//            try engine!.start()
+//        } catch {
+//            print("AVAudioEngine.start() error: \(error.localizedDescription)")
+//        }
+//        player!.play()
+//        
+//        
+//        guard let engine = engine, engine.isRunning else {
+//            // Streaming has been already stopped
+//            return
+//        }
         
 //        let buffer = AVAudioPCMBuffer(pcmFormat: engine.mainMixerNode.inputFormat(forBus: 0), frameCapacity: AVAudioFrameCount(pcm16Data.count))!
 //        buffer.frameLength = buffer.frameCapacity

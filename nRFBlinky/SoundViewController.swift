@@ -22,7 +22,7 @@ class SoundViewController: UITableViewController, ThingyManagerDelegate, ThingyP
         
         thingyManager = ThingyManager.init(withDelegate: self)
 
-        targetPeripheral?.delegate = self
+//        targetPeripheral?.delegate = self
     }
     
 
@@ -40,7 +40,7 @@ class SoundViewController: UITableViewController, ThingyManagerDelegate, ThingyP
     }
     
     func thingyManager(_ manager: ThingyManager, didDiscoverPeripheral peripheral: ThingyPeripheral, withPairingCode: String?) {
-        print("DiscoverPeripheral \(peripheral)")
+//        print("DiscoverPeripheral \(peripheral)")
         if !discoveredPeripherals.contains(peripheral) {
             discoveredPeripherals.append(peripheral)
 //            DispatchQueue.main.async {
@@ -73,7 +73,12 @@ class SoundViewController: UITableViewController, ThingyManagerDelegate, ThingyP
     //MARK: - Thingy API
     func thingyPeripheral(_ peripheral: ThingyPeripheral, didChangeStateTo state: ThingyPeripheralState) {
 
-        print(state)
+        print("peripheral state \(state)")
+        if state == ThingyPeripheralState.discoveringCharacteristics {
+            targetPeripheral = peripheral
+//            startReceivingMicrophone()
+        }
+        
     }
     
     func targetPeripheralWillChange(old: ThingyPeripheral, new: ThingyPeripheral?) {
@@ -101,6 +106,11 @@ class SoundViewController: UITableViewController, ThingyManagerDelegate, ThingyP
         thingyManager?.connect(toDevice: discoveredPeripherals[indexPath.row])
         
         thingyManager?.stopScan()
+        
+        discoveredPeripherals[indexPath.row].delegate  = self
+        if targetPeripheral != nil {
+            startReceivingMicrophone()
+        }
     }
 
     private func startPlaying() {
@@ -132,7 +142,7 @@ class SoundViewController: UITableViewController, ThingyManagerDelegate, ThingyP
         let buffer = AVAudioPCMBuffer(pcmFormat: engine.mainMixerNode.inputFormat(forBus: 0), frameCapacity: AVAudioFrameCount(pcm16Data.count))
         buffer.frameLength = buffer.frameCapacity
         
-        var graphData = [Double]()
+//        var graphData = [Double]()
         for i in 0 ..< pcm16Data.count {
             buffer.floatChannelData![0 /* channel 1 */][i] = Float32(pcm16Data[i]) / Float32(Int16.max) // TODO: 32 - increases volume, this should be done on Thingy
             // print("Value \(i): \(pcm16Data[i]) => \(buffer.floatChannelData![0][i])")
