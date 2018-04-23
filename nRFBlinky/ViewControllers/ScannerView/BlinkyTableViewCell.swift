@@ -19,15 +19,15 @@ class BlinkyTableViewCell: UITableViewCell {
 
     public func setupViewWithPeripheral(_ aPeripheral: BlinkyPeripheral) {
         peripheral = aPeripheral
-        peripheralName.text = aPeripheral.advertisedName
+        peripheralName.text = aPeripheral.advertisedName! + " " + peripheral.RSSI.stringValue
 
-        if peripheral!.RSSI.decimalValue < -60 {
+        if peripheral!.RSSI.decimalValue < -90 {
             peripheralRSSIIcon.image = #imageLiteral(resourceName: "rssi_2")
-        } else if peripheral!.RSSI.decimalValue < -35 {
+        } else if peripheral!.RSSI.decimalValue < -45 {
             peripheralRSSIIcon.image = #imageLiteral(resourceName: "rssi_3")
-        } else if peripheral!.RSSI.decimalValue < -20 {
+        } else if peripheral!.RSSI.decimalValue > -30 {
             peripheralRSSIIcon.image = #imageLiteral(resourceName: "rssi_4")
-        }else {
+        } else {
             peripheralRSSIIcon.image = #imageLiteral(resourceName: "rssi_1")
         }
     }

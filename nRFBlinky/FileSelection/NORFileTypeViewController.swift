@@ -34,7 +34,7 @@ class NORFileTypeViewController: UIViewController, UITableViewDelegate, UITableV
     }
 
     override func viewWillDisappear(_ animated: Bool) {
-        UIApplication.shared.setStatusBarStyle(UIStatusBarStyle.lightContent, animated: true)
+        UIApplication.shared.setStatusBarStyle(UIStatusBarStyle.default, animated: true)
         super.viewWillDisappear(animated)
     }
 

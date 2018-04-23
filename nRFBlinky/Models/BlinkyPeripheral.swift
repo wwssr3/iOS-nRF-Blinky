@@ -15,20 +15,31 @@ class BlinkyPeripheral: NSObject, CBPeripheralDelegate {
     //MARK: - Blinky services and charcteristics Identifiers
     //
 
-    public static let SOUND_SERVICE  = CBUUID.init(string: "000018ff-0000-1000-8000-00805f9b34fb")
+    public static let SOUND_SERVICE  = CBUUID.init(string: "000018ff-0000-1000-8000-00805f9b34fb")//
     public static let SOUND_CHARACTERISTIC = CBUUID.init(string: "00002aff-0000-1000-8000-00805f9b34fb")
     public static let SOUND_CHARACTERISTIC_DESCRIPTOR    = CBUUID.init(string: "00002902-0000-1000-8000-00805f9b34fb")
     
     
-    public static let JB_CONFIG_SERVICE_UUID  = CBUUID.init(string: "6e400100-b5a3-f393-e0a9-e50e24dcca9e")
+    public static let JB_CONFIG_SERVICE_UUID  = CBUUID.init(string: "6e400100-b5a3-f393-e0a9-e50e24dcca9e")//
     public static let JB_FIRMWARE_VERSION_CHARACERISTIC_UUID = CBUUID.init(string: "6e400102-b5a3-f393-e0a9-e50e24dcca9e")
     public static let LED_CHARACTERISTIC = CBUUID.init(string: "6e400103-b5a3-f393-e0a9-e50e24dcca9e")
     public static let POWER_CHARACTERISTIC = CBUUID.init(string: "6e400104-b5a3-f393-e0a9-e50e24dcca9e")
     public static let MAGNET_ADJUST_CHARACTERISTIC = CBUUID.init(string: "6e400105-b5a3-f393-e0a9-e50e24dcca9e")
     public static let JB_FEEDBACK_CHARACTERISTIC = CBUUID.init(string: "6e400106-b5a3-f393-e0a9-e50e24dcca9e")
     
+    public static let  SENSOR_SERVICE = CBUUID.init(string:"000018fe-0000-1000-8000-00805f9b34fb")//
+    public static let  SENSOR_CHARACTERISTIC = CBUUID.init(string:"00002afd-0000-1000-8000-00805f9b34fb")
+    public static let  SENSOR_CHARACTERISTIC_DESCRIPTOR = CBUUID.init(string:"00002902-0000-1000-8000-00805f9b34fb")
     
     
+    
+    public static let  SENSOR_SERVICE1 = CBUUID.init(string:"00001800-0000-1000-8000-00805f9b34fb")
+    public static let  SENSOR_SERVICE2 = CBUUID.init(string:"00001801-0000-1000-8000-00805f9b34fb")
+    public static let  SENSOR_SERVICE3 = CBUUID.init(string:"000018f0-0000-1000-8000-00805f9b34fb")
+    public static let  SENSOR_SERVICE4 = CBUUID.init(string:"0000180f-0000-1000-8000-00805f9b34fb")
+    public static let  SENSOR_SERVICE5 = CBUUID.init(string:"0000180a-0000-1000-8000-00805f9b34fb")
+    public static let  SECURE_DFU_SERVICE = CBUUID.init(string:"0000FE59-0000-1000-8000-00805F9B34FB")
+
     //MARK: - Properties
     //
     public var basePeripheral      : CBPeripheral
@@ -36,13 +47,9 @@ class BlinkyPeripheral: NSObject, CBPeripheralDelegate {
     public private(set) var RSSI                : NSNumber
     public private(set) var advertisedServices  : [CBUUID]?
     
-    // PMC Audio
-    private var engine                      : AVAudioEngine?
-    private var player                      : AVAudioPlayerNode?
-    
     //MARK: - Callback handlers
     private var ledCallbackHandler : ((Bool) -> (Void))?
-    private var buttonPressHandler : ((Bool) -> (Void))?
+    private var buttonPressHandler : ((String) -> (Void))?
 
     //MARK: - Services and Characteristic properties
     //
@@ -62,7 +69,7 @@ class BlinkyPeripheral: NSObject, CBPeripheralDelegate {
         ledCallbackHandler = aCallbackHandler
     }
 
-    public func setButtonCallback(aCallbackHandler: @escaping (Bool) -> (Void)) {
+    public func setButtonCallback(aCallbackHandler: @escaping (String) -> (Void)) {
         buttonPressHandler = aCallbackHandler
     }
     
@@ -113,70 +120,10 @@ class BlinkyPeripheral: NSObject, CBPeripheralDelegate {
         }
     }
     
-    public func didReceiveButtonNotificationWithValue(_ aValue: Data) {
-        
-        
-//        print(aValue.count)
-        // The pcmFormatInt16 format is not supported in AvAudioPlayerNode
-        // Later on we will have to devide all values by Int16.max to get values from -1.0 to 1.0
-//        let format = AVAudioFormat(commonFormat: .pcmFormatFloat32, sampleRate: 16000, channels: 1, interleaved: true)
-//        
-//        engine = AVAudioEngine()
-//        player = AVAudioPlayerNode()
-//        engine!.attach(player!)
-//        engine!.connect(player!, to: engine!.mainMixerNode, format: format)
-//        engine!.mainMixerNode.volume = 1.0
-//        
-//        do {
-//            engine!.prepare()
-//            try engine!.start()
-//        } catch {
-//            print("AVAudioEngine.start() error: \(error.localizedDescription)")
-//        }
-//        player!.play()
-//        
-//        
-//        guard let engine = engine, engine.isRunning else {
-//            // Streaming has been already stopped
-//            return
-//        }
-        
-//        let buffer = AVAudioPCMBuffer(pcmFormat: engine.mainMixerNode.inputFormat(forBus: 0), frameCapacity: AVAudioFrameCount(pcm16Data.count))!
-//        buffer.frameLength = buffer.frameCapacity
-//
-//        var graphData = [Double]()
-//        for i in 0 ..< pcm16Data.count {
-//            buffer.floatChannelData![0 /* channel 1 */][i] = Float32(pcm16Data[i]) / Float32(Int16.max) // TODO: 32 - increases volume, this should be done on Thingy
-//            // print("Value \(i): \(pcm16Data[i]) => \(buffer.floatChannelData![0][i])")
-//
-//            // Unfortunatelly we can't show all samples on the graph, it would be too slow.
-//            // We show only every n-th sample from whole 800 samples in the buffer keeping the same precission as when sending sound.
-//            if i % (800 / self.soundGraphHandler.maximumVisiblePoints) == 0 {
-//                graphData.append((Double((buffer.floatChannelData![0][i]))))
-//            }
-//        }
-//        DispatchQueue.main.async {
-//            guard self.engine != nil && self.engine!.isRunning else {
-//                return
-//            }
-//            self.soundGraphHandler.addPoints(withValues: graphData)
-//        }
-//
-//        player!.scheduleBuffer(buffer, completionHandler: nil)
-        
+    public func didReceiveSoundCharacteristicUpdateWithValue(_ aValue: Data) {
 
+            buttonPressHandler?("Button value changed to: \(aValue[0])")
 
-        
-        
-        
-        
-        
-//        print("Button value changed to: \(aValue[0])")
-//        if aValue[0] == 1 {
-//            buttonPressHandler?(true)
-//        } else {
-//            buttonPressHandler?(false)
-//        }
     }
     
     public func turnOnLED() {
@@ -229,12 +176,13 @@ class BlinkyPeripheral: NSObject, CBPeripheralDelegate {
     //MARK: - CBPeripheralDelegate
     func peripheral(_ peripheral: CBPeripheral, didUpdateValueFor characteristic: CBCharacteristic, error: Error?) {
         
+        print(characteristic.value!)
         if characteristic == BlinkyPeripheral.SOUND_CHARACTERISTIC {
             print("didUpdateValueFor SOUND_CHARACTERISTIC")
         }
         if characteristic == soundCharacteristic {
             if let aValue = characteristic.value {
-                didReceiveButtonNotificationWithValue(aValue)
+                didReceiveSoundCharacteristicUpdateWithValue(aValue)
             }
         } else if characteristic == ledCharacteristic {
             if let aValue = characteristic.value {
@@ -246,8 +194,8 @@ class BlinkyPeripheral: NSObject, CBPeripheralDelegate {
     func peripheral(_ peripheral: CBPeripheral, didUpdateNotificationStateFor characteristic: CBCharacteristic, error: Error?) {
         if characteristic.uuid == soundCharacteristic?.uuid {
             print("Notification state is now \(characteristic.isNotifying) for Button characteristic")
-//            readButtonValue()
-//            readLEDValue()
+            readButtonValue()
+            readLEDValue()
         } else {
             print("Notification state is now \(characteristic.isNotifying) for an unknown characteristic with UUID: \(characteristic.uuid.uuidString)")
         }
@@ -257,35 +205,44 @@ class BlinkyPeripheral: NSObject, CBPeripheralDelegate {
         if let services = peripheral.services {
             for aService in services {
                 print("Discovered service! \(aService) )")
-                if aService.uuid == BlinkyPeripheral.SOUND_SERVICE {
+                
+                switch aService.uuid {
+                case BlinkyPeripheral.SOUND_SERVICE:
                     print("Discovered SOUND_SERVICE service )")
-                    //Capture and discover all characteristics for the blinky service
                     blinkyService = aService
+                    basePeripheral.discoverCharacteristics(nil, for: blinkyService!)
+                    //Capture and discover all characteristics for the blinky service
                     
-                    discoverCharacteristicsForBlinkyService(blinkyService!)
+                    break
+                case BlinkyPeripheral.SENSOR_SERVICE:
+                    print("Discovered SENSOR_SERVICE service )")
+//                    blinkyService = aService
+//                    basePeripheral.discoverCharacteristics(nil, for: blinkyService!)
+                    break
+                default:
+                    break
+
                 }
             }
         }
     }
     
     func peripheral(_ peripheral: CBPeripheral, didDiscoverCharacteristicsFor service: CBService, error: Error?) {
-        if service == blinkyService {
-            print("didDiscoverCharacteristicsFor \(service.characteristics?.count)")
-            if let characteristics = service.characteristics {
-                for aCharacteristic in characteristics {
-                    
-                    print("Discovered Blinky characteristics! \(aCharacteristic.uuid) \(String(describing: aCharacteristic.descriptors))")
-                    if aCharacteristic.uuid == BlinkyPeripheral.SOUND_CHARACTERISTIC {
-                        print("SOUND_CHARACTERISTIC")
-                        soundCharacteristic = aCharacteristic
-                        enableButtonNotifications(soundCharacteristic!)
+
+        print("Discovered characteristics for an service with UUID: \(service.uuid.uuidString)")
+        if let characteristics = service.characteristics {
+            for aCharacteristic in characteristics {
+                
+                print("Discovered Blinky characteristics! \(aCharacteristic.uuid) \(String(describing: aCharacteristic.descriptors))")
+                if aCharacteristic.uuid == BlinkyPeripheral.SOUND_CHARACTERISTIC {
+                    print("SOUND_CHARACTERISTIC")
+                    soundCharacteristic = aCharacteristic
+                    enableButtonNotifications(soundCharacteristic!)
 //                        peripheral.discoverDescriptors(for: aCharacteristic)
-                    }
                 }
             }
-        } else {
-            print("Discovered characteristics for an unnknown service with UUID: \(service.uuid.uuidString)")
         }
+        
     }
     
     func peripheral(_ peripheral: CBPeripheral, didDiscoverDescriptorsFor characteristic: CBCharacteristic, error: Error?) {
@@ -293,10 +250,7 @@ class BlinkyPeripheral: NSObject, CBPeripheralDelegate {
         if let descriptors = characteristic.descriptors {
             for descriptor in descriptors {
                 if descriptor.uuid == BlinkyPeripheral.SOUND_CHARACTERISTIC_DESCRIPTOR {
-                    
-                    
-//                    peripheral.writeValue(Data.init(bytes: [0x01, 0x00]), for: descriptor)
-//                    peripheral.readValue(for: descriptor)
+
                 }
             }
         }
@@ -305,16 +259,6 @@ class BlinkyPeripheral: NSObject, CBPeripheralDelegate {
     func peripheral(_ peripheral: CBPeripheral, didUpdateValueFor descriptor: CBDescriptor, error: Error?) {
         print("didUpdateValueFor \(descriptor)")
         
-//        let aValue = descriptor.value as! Data
-//        var player:AVAudioPlayer?
-//        do {
-//            player = try AVAudioPlayer.init(data: aValue)
-//            
-//            
-//            player?.play()
-//        } catch let error {
-//            print(error.localizedDescription)
-//        }
     }
     func peripheral(_ peripheral: CBPeripheral, didWriteValueFor characteristic: CBCharacteristic, error: Error?) {
         if characteristic == ledCharacteristic {

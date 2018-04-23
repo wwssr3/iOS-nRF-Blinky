@@ -57,12 +57,12 @@ class NORAppFilesViewController: UIViewController, UITableViewDelegate, UITableV
     func doneButtonTapped() {
         self.dismiss(animated: true, completion: nil)
         self.fileDelegate?.onFileSelected(withURL: self.selectedPath!)
-        UIApplication.shared.setStatusBarStyle(UIStatusBarStyle.lightContent, animated: true)
+        UIApplication.shared.setStatusBarStyle(UIStatusBarStyle.default, animated: true)
     }
     
     func cancelButtonTapped() {
         self.dismiss(animated: true, completion: nil)
-        UIApplication.shared.setStatusBarStyle(UIStatusBarStyle.lightContent, animated: true)
+        UIApplication.shared.setStatusBarStyle(UIStatusBarStyle.default, animated: true)
     }
 
     //MARK: - UITableViewDataSource

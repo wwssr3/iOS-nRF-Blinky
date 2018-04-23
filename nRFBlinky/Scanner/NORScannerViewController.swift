@@ -67,7 +67,7 @@ class NORScannerViewController: UIViewController, CBCentralManagerDelegate, UITa
             image = UIImage(named: "Signal_0")!
         } else if (anRSSIValue < -70) {
             image = UIImage(named: "Signal_1")!
-        } else if (anRSSIValue < -50) {
+        } else if (anRSSIValue < -33) {
             image = UIImage(named: "Signal_2")!
         } else {
             image = UIImage(named: "Signal_3")!
@@ -164,13 +164,18 @@ class NORScannerViewController: UIViewController, CBCentralManagerDelegate, UITa
         
         //Update cell content
         let scannedPeripheral = peripherals[indexPath.row]
-        aCell.textLabel?.text = scannedPeripheral.name()
+        aCell.textLabel?.text = String(scannedPeripheral.RSSI) + " " + scannedPeripheral.name()
 
+        if scannedPeripheral.RSSI ==  Int32(127) {
+            
+        }
+        
         if scannedPeripheral.isConnected == true {
             aCell.imageView!.image = UIImage(named: "Connected")
         } else {
             let RSSIImage = self.getRSSIImage(RSSI: scannedPeripheral.RSSI)
             aCell.imageView!.image = RSSIImage
+            
         }
         
         return aCell

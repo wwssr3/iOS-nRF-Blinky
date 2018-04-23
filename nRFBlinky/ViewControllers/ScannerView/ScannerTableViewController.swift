@@ -117,7 +117,7 @@ class ScannerTableViewController: UITableViewController, CBCentralManagerDelegat
         centralManager.delegate = self
         if centralManager.state == .poweredOn {
             activityIndicator.startAnimating()
-            centralManager.scanForPeripherals(withServices: nil, options: [CBCentralManagerScanOptionAllowDuplicatesKey : true])
+            centralManager.scanForPeripherals(withServices: [CBUUID.init(string: "000018ff-0000-1000-8000-00805f9b34fb")], options: [CBCentralManagerScanOptionAllowDuplicatesKey : true])
         }
     }
 

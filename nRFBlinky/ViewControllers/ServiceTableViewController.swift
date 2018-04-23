@@ -1,16 +1,15 @@
 //
-//  SoundViewTableViewController.swift
+//  ServiceTableViewController.swift
 //  nRFBlinky
 //
-//  Created by Sirui Wang, EC-17 on 02/04/2018.
+//  Created by Sirui Wang on 20/04/2018.
 //  Copyright © 2018 Nordic Semiconductor ASA. All rights reserved.
 //
 
 import UIKit
 
-class SoundViewTableViewController: UITableViewController {
-    
-    private var discoveredPeripherals = [CBPeripheral]()
+class ServiceTableViewController: UITableViewController {
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -28,18 +27,16 @@ class SoundViewTableViewController: UITableViewController {
 
     // MARK: - Table view data source
 
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell  = tableView.dequeueReusableCell(withIdentifier: "thingyCell", for: indexPath)
-        cell.textLabel?.text = discoveredPeripherals[indexPath.row].name
-        
-        cell.detailTextLabel?.text = discoveredPeripherals[indexPath.row].rssi.stringValue
-        return cell
-        
+    override func numberOfSections(in tableView: UITableView) -> Int {
+        // #warning Incomplete implementation, return the number of sections
+        return 0
     }
-    
+
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return discoveredPeripherals.count
+        // #warning Incomplete implementation, return the number of rows
+        return 0
     }
+
     /*
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
