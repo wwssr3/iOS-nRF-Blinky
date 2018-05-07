@@ -20,7 +20,9 @@ class BlinkyPeripheral: NSObject, CBPeripheralDelegate {
     public static let SOUND_CHARACTERISTIC_DESCRIPTOR    = CBUUID.init(string: "00002902-0000-1000-8000-00805f9b34fb")
     
     
-    public static let JB_CONFIG_SERVICE_UUID  = CBUUID.init(string: "6e400100-b5a3-f393-e0a9-e50e24dcca9e")//
+    public static let Nordic_UART_Service_UUID  = CBUUID.init(string: "6e400001-b5a3-f393-e0a9-e50e24dcca9e")
+    public static let Nordic_UART_RX_Characteristic  = CBUUID.init(string: "6e400002-B5A3-F393-E0A9-E50E24DCCA9E")
+    public static let Nordic_UART_TX_Characteristic  = CBUUID.init(string: "6e400003-B5A3-F393-E0A9-E50E24DCCA9E")
     public static let JB_FIRMWARE_VERSION_CHARACERISTIC_UUID = CBUUID.init(string: "6e400102-b5a3-f393-e0a9-e50e24dcca9e")
     public static let LED_CHARACTERISTIC = CBUUID.init(string: "6e400103-b5a3-f393-e0a9-e50e24dcca9e")
     public static let POWER_CHARACTERISTIC = CBUUID.init(string: "6e400104-b5a3-f393-e0a9-e50e24dcca9e")
@@ -56,6 +58,8 @@ class BlinkyPeripheral: NSObject, CBPeripheralDelegate {
     private             var blinkyService       : CBService?
     private             var soundCharacteristic: CBCharacteristic?
     private             var ledCharacteristic   : CBCharacteristic?
+    private             var rxCharacteristic   : CBCharacteristic?
+    private             var txCharacteristic   : CBCharacteristic?
 
     init(withPeripheral aPeripheral: CBPeripheral, advertisementData anAdvertisementDictionary: [String : Any], andRSSI anRSSI: NSNumber) {
         basePeripheral = aPeripheral
@@ -197,6 +201,7 @@ class BlinkyPeripheral: NSObject, CBPeripheralDelegate {
             readButtonValue()
             readLEDValue()
         } else {
+            writeBabyPhoneThreshold()
             print("Notification state is now \(characteristic.isNotifying) for an unknown characteristic with UUID: \(characteristic.uuid.uuidString)")
         }
     }
@@ -209,8 +214,8 @@ class BlinkyPeripheral: NSObject, CBPeripheralDelegate {
                 switch aService.uuid {
                 case BlinkyPeripheral.SOUND_SERVICE:
                     print("Discovered SOUND_SERVICE service )")
-                    blinkyService = aService
-                    basePeripheral.discoverCharacteristics(nil, for: blinkyService!)
+//                    blinkyService = aService
+//                    basePeripheral.discoverCharacteristics(nil, for: blinkyService!)
                     //Capture and discover all characteristics for the blinky service
                     
                     break
@@ -219,6 +224,9 @@ class BlinkyPeripheral: NSObject, CBPeripheralDelegate {
 //                    blinkyService = aService
 //                    basePeripheral.discoverCharacteristics(nil, for: blinkyService!)
                     break
+                case BlinkyPeripheral.Nordic_UART_Service_UUID:
+                    blinkyService = aService
+                    basePeripheral.discoverCharacteristics(nil, for: blinkyService!)
                 default:
                     break
 
@@ -234,12 +242,24 @@ class BlinkyPeripheral: NSObject, CBPeripheralDelegate {
             for aCharacteristic in characteristics {
                 
                 print("Discovered Blinky characteristics! \(aCharacteristic.uuid) \(String(describing: aCharacteristic.descriptors))")
-                if aCharacteristic.uuid == BlinkyPeripheral.SOUND_CHARACTERISTIC {
+                switch aCharacteristic.uuid {
+                case BlinkyPeripheral.SOUND_CHARACTERISTIC:
                     print("SOUND_CHARACTERISTIC")
-                    soundCharacteristic = aCharacteristic
-                    enableButtonNotifications(soundCharacteristic!)
-//                        peripheral.discoverDescriptors(for: aCharacteristic)
+//                    soundCharacteristic = aCharacteristic
+//                    enableButtonNotifications(soundCharacteristic!)
+                    break
+                case BlinkyPeripheral.Nordic_UART_RX_Characteristic:
+
+                    rxCharacteristic = aCharacteristic
+                    
+                    writeBabyPhoneThreshold ()
+                    break
+                case BlinkyPeripheral.Nordic_UART_TX_Characteristic:
+                    peripheral.setNotifyValue(true, for: aCharacteristic)
+                default:
+                    break
                 }
+                
             }
         }
         
@@ -261,8 +281,45 @@ class BlinkyPeripheral: NSObject, CBPeripheralDelegate {
         
     }
     func peripheral(_ peripheral: CBPeripheral, didWriteValueFor characteristic: CBCharacteristic, error: Error?) {
-        if characteristic == ledCharacteristic {
-            peripheral.readValue(for: ledCharacteristic!)
+        if characteristic == BlinkyPeripheral.Nordic_UART_TX_Characteristic {
+            print(characteristic.value)
         }
     }
+    
+    func writeSystemTime () {
+        let currentDate = Date()
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yy MM dd HH mm ss"
+        let stringDate = dateFormatter.string(from: currentDate)
+        
+        var dataArray : [UInt8] = Array.init(repeating: 0, count: 5)
+        dataArray[0] = 0xaa
+        dataArray[1] = 0x55
+        dataArray[2] = 0x10
+        dataArray[3] = 0x07
+        dataArray[4] = 20
+        
+        for str in stringDate.components(separatedBy: " ") {
+            print(str)
+            dataArray.append(UInt8((str as NSString).intValue))
+        }
+        
+        for byte in dataArray {
+            print(String(byte,radix:16))
+        }
+        
+        self.basePeripheral.writeValue(Data.init(bytes: dataArray), for: rxCharacteristic!, type: CBCharacteristicWriteType.withResponse)
+    }
+    
+    func writeBabyPhoneThreshold () {
+        var dataArray : [UInt8] = Array.init(repeating: 0, count: 6)
+        dataArray[0] = 0xaa
+        dataArray[1] = 0x55
+        dataArray[2] = 0x11
+        dataArray[3] = 0x02
+        dataArray[4] = 0x01
+        dataArray[5] = 0x04
+        self.basePeripheral.writeValue(Data.init(bytes: dataArray), for: rxCharacteristic!, type: CBCharacteristicWriteType.withResponse)
+    }
 }
+

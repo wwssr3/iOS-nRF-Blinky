@@ -103,7 +103,7 @@ class SoundViewController: UITableViewController, ThingyManagerDelegate {
         
         thingyManager?.stopScan()
         
-        self.performSegue(withIdentifier: "showServices", sender: indexPath.row)
+        self.performSegue(withIdentifier: "showDFUView", sender: indexPath.row)
 //        discoveredPeripherals[indexPath.row].delegate  = self
         
     }
@@ -158,16 +158,20 @@ class SoundViewController: UITableViewController, ThingyManagerDelegate {
 //        engine = nil
 //    }
 //    
-    
-     // MARK: - Navigation
-     
-     // In a storyboard-based application, you will often want to do a little preparation before navigation
      override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-     // Get the new view controller using segue.destinationViewController.
-     // Pass the selected object to the new view controller.
-        if segue.identifier == "showServices" {
+
+        switch segue.identifier {
+        case "showDFUView":
+            let dFUViewController : DFUViewController = segue.destination as! DFUViewController
+            dFUViewController.targetPeripheral = discoveredDevices[sender as! Int]
+            dFUViewController.thingyManager = thingyManager
+            break
+        case "showServices":
             let servicesViewController : SoundServiceViewController = segue.destination as! SoundServiceViewController
             servicesViewController.targetPeripheral = discoveredDevices[sender as! Int]
+            break
+        default:
+            break
         }
      }
     

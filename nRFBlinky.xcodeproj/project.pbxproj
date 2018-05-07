@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		10027AAB209C369700199C32 /* DFUViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10027AAA209C369700199C32 /* DFUViewController.swift */; };
 		102BB8832057CFF7004AAB6F /* NORScannedPeripheral.swift in Sources */ = {isa = PBXBuildFile; fileRef = 102BB8802057CFF7004AAB6F /* NORScannedPeripheral.swift */; };
 		102BB8842057CFF7004AAB6F /* NORScannerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 102BB8812057CFF7004AAB6F /* NORScannerDelegate.swift */; };
 		102BB8852057CFF7004AAB6F /* NORScannerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 102BB8822057CFF7004AAB6F /* NORScannerViewController.swift */; };
@@ -37,6 +38,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		10027AAA209C369700199C32 /* DFUViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DFUViewController.swift; sourceTree = "<group>"; };
 		102BB8802057CFF7004AAB6F /* NORScannedPeripheral.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NORScannedPeripheral.swift; sourceTree = "<group>"; };
 		102BB8812057CFF7004AAB6F /* NORScannerDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NORScannerDelegate.swift; sourceTree = "<group>"; };
 		102BB8822057CFF7004AAB6F /* NORScannerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NORScannerViewController.swift; sourceTree = "<group>"; };
@@ -155,6 +157,7 @@
 		30B664431FCD6E65003C8B55 /* nRFBlinky */ = {
 			isa = PBXGroup;
 			children = (
+				10027AAA209C369700199C32 /* DFUViewController.swift */,
 				102BB895205A6B8F004AAB6F /* SoundViewController.swift */,
 				10D6BD90208DA37C00082B05 /* SoundServiceViewController.swift */,
 				102BB8862057D01C004AAB6F /* BaseViewController */,
@@ -374,6 +377,7 @@
 				18CEB2BD202C16D8002C1144 /* NORFileSelectionDelegate.swift in Sources */,
 				30B664881FCDA2E0003C8B55 /* BlinkyPeripheral.swift in Sources */,
 				18CEB2C1202C16D8002C1144 /* NORTutorialViewController.swift in Sources */,
+				10027AAB209C369700199C32 /* DFUViewController.swift in Sources */,
 				18CEB2BB202C16D8002C1144 /* NORAppFilesViewController.swift in Sources */,
 				30B664451FCD6E65003C8B55 /* AppDelegate.swift in Sources */,
 				18CEB2C2202C16D8002C1144 /* NORUserFilesViewController.swift in Sources */,
