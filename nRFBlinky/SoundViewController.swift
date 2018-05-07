@@ -103,7 +103,7 @@ class SoundViewController: UITableViewController, ThingyManagerDelegate {
         
         thingyManager?.stopScan()
         
-        self.performSegue(withIdentifier: "showDFUView", sender: indexPath.row)
+        self.performSegue(withIdentifier: "showServices", sender: indexPath.row)
 //        discoveredPeripherals[indexPath.row].delegate  = self
         
     }
@@ -161,11 +161,11 @@ class SoundViewController: UITableViewController, ThingyManagerDelegate {
      override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
 
         switch segue.identifier {
-        case "showDFUView":
-            let dFUViewController : DFUViewController = segue.destination as! DFUViewController
-            dFUViewController.targetPeripheral = discoveredDevices[sender as! Int]
-            dFUViewController.thingyManager = thingyManager
-            break
+//        case "showDFUView":
+//            let dFUViewController : DFUViewController = segue.destination as! DFUViewController
+//            dFUViewController.targetPeripheral = discoveredDevices[sender as! Int]
+//            dFUViewController.thingyManager = thingyManager
+//            break
         case "showServices":
             let servicesViewController : SoundServiceViewController = segue.destination as! SoundServiceViewController
             servicesViewController.targetPeripheral = discoveredDevices[sender as! Int]

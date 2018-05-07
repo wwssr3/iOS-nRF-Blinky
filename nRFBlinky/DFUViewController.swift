@@ -5,7 +5,7 @@
 //  Created by Sirui Wang on 04/05/2018.
 //  Copyright © 2018 Nordic Semiconductor ASA. All rights reserved.
 //
-
+/*
 import UIKit
 
 import IOSThingyLibrary
@@ -96,3 +96,4 @@ class DFUViewController: UIViewController ,ThingyDFUDelegate, NORFileSelectionDe
 
     
 }
+*/

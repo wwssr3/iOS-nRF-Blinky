@@ -1284,7 +1284,7 @@
                     </tableView>
                     <connections>
                         <segue destination="LMO-sl-eZz" kind="show" identifier="showServices" id="Bkb-Rp-IbH"/>
-                        <segue destination="RO7-Ws-nQk" kind="show" identifier="showDFUView" id="hXE-2A-oiK"/>
+                        <segue destination="RO7-Ws-nQk" kind="show" identifier="showServices" id="hXE-2A-oiK"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DC9-Ow-A2I" userLabel="First Responder" sceneMemberID="firstResponder"/>
