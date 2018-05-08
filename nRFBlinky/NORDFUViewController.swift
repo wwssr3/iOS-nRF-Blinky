@@ -12,7 +12,7 @@ import iOSDFULibrary
 
 
 
-class NORDFUViewController: NORBaseViewController, NORScannerDelegate, NORFileTypeSelectionDelegate, NORFileSelectionDelegate, LoggerDelegate, DFUServiceDelegate, DFUProgressDelegate {
+class NORDFUViewController: NORBaseViewController, NORScannerDelegate, NORFileSelectionDelegate, LoggerDelegate, DFUServiceDelegate, DFUProgressDelegate {
     
     //MARK: - Class properties
     var selectedPeripheral : CBPeripheral?
@@ -79,43 +79,6 @@ class NORDFUViewController: NORBaseViewController, NORScannerDelegate, NORFileTy
         self.updateUploadButtonState()
     }
     
-    //MARK: - NORFileTypeSelectionDelegate
-    func onFileTypeSelected(fileType aType: DFUFirmwareType) {
-        selectedFirmware = DFUFirmware(urlToBinOrHexFile: selectedFileURL!, urlToDatFile: nil, type: aType)
-        
-        print(selectedFirmware?.fileUrl ?? "None")
-        if selectedFirmware != nil && selectedFirmware?.fileName != nil {
-            fileName.text = selectedFirmware?.fileName
-            let content = try? Data(contentsOf: selectedFileURL!)
-            fileSize.text = String(format: "%d bytes", (content?.count)!)
-            
-            switch  aType {
-            case .application:
-                fileType.text = "Application"
-                break
-            case .bootloader:
-                fileType.text = "Bootloader"
-                break
-            case .softdevice:
-                fileType.text = "SoftDevice"
-                break
-            default:
-                fileType.text = "Not implemented yet"
-            }
-        }else{
-            selectedFileURL = nil
-            selectedFileURL = nil
-            NORDFUConstantsUtility.showAlert(message: "Selected file is not supported")
-        }
-        
-        updateUploadButtonState()
-    }
-    
-    func onFileTypeNotSelected() {
-        selectedFileURL = nil
-        updateUploadButtonState()
-    }
-    
     //MARK: - NORFileSelectionDelegate
     func onFileImported(withURL aFileURL: URL){
         selectedFileURL = aFileURL
@@ -145,14 +108,15 @@ class NORDFUViewController: NORBaseViewController, NORScannerDelegate, NORFileTy
                 NORDFUConstantsUtility.showAlert(message: "Seleted file is not supported")
             }
             self.updateUploadButtonState()
-        }else{
-            // Show a view to select the file type
-            let mainStorybord                   = UIStoryboard(name: "Main", bundle: nil)
-            let navigationController            = mainStorybord.instantiateViewController(withIdentifier: "SelectFileType")
-            let filetTypeViewController         = navigationController.childViewControllers.first as? NORFileTypeViewController
-            filetTypeViewController!.delegate   = self
-            self.present(navigationController, animated: true, completion:nil)
         }
+//        else{
+//            // Show a view to select the file type
+//            let mainStorybord                   = UIStoryboard(name: "Main", bundle: nil)
+//            let navigationController            = mainStorybord.instantiateViewController(withIdentifier: "SelectFileType")
+//            let filetTypeViewController         = navigationController.childViewControllers.first as? NORFileTypeViewController
+//            filetTypeViewController!.delegate   = self
+//            self.present(navigationController, animated: true, completion:nil)
+//        }
         
     }
     //MARK: - LoggerDelegate
@@ -230,12 +194,10 @@ class NORDFUViewController: NORBaseViewController, NORScannerDelegate, NORFileTy
             let barViewController = aNavigationController?.childViewControllers.first as? UITabBarController
             let appFilecsVC = barViewController?.viewControllers?.first as? NORAppFilesViewController
             appFilecsVC?.fileDelegate = self
-            let userFilesVC = barViewController?.viewControllers?.last as? NORUserFilesViewController
-            userFilesVC?.fileDelegate = self
             
             if selectedFileURL != nil {
                 appFilecsVC?.selectedPath = selectedFileURL
-                userFilesVC?.selectedPath = selectedFileURL
+
             }
         }
     }

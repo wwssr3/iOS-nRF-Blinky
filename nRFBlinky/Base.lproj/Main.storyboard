@@ -847,122 +847,11 @@
                     </tabBar>
                     <connections>
                         <segue destination="IGT-c5-EMY" kind="relationship" relationship="viewControllers" id="3JN-vY-3O2"/>
-                        <segue destination="jBk-uV-lcn" kind="relationship" relationship="viewControllers" id="vYh-CN-ctC"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QAT-cb-mrR" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3076" y="-1241"/>
-        </scene>
-        <!--User Files-->
-        <scene sceneID="JPQ-tN-yDj">
-            <objects>
-                <viewController id="jBk-uV-lcn" customClass="NORUserFilesViewController" customModule="nRFBlinky" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="1nG-Mj-9L8"/>
-                        <viewControllerLayoutGuide type="bottom" id="xNY-h4-Djs"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="fgM-MG-CrC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="554"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="oDi-8R-4qg">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="554"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <view key="tableFooterView" contentMode="scaleToFill" id="Pfb-iE-v7N" userLabel="Footer">
-                                    <rect key="frame" x="0.0" y="156" width="375" height="0.0"/>
-                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                </view>
-                                <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="UserFilesCellHelp" rowHeight="84" id="mpi-61-Qb8">
-                                        <rect key="frame" x="0.0" y="28" width="375" height="84"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="mpi-61-Qb8" id="q6m-9t-0D2">
-                                            <rect key="frame" x="0.0" y="0.0" width="342" height="83.5"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="filesHelp" translatesAutoresizingMaskIntoConstraints="NO" id="kjE-eN-Iny">
-                                                    <rect key="frame" x="17" y="12" width="60" height="60"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="How to..." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QqQ-nM-rIJ">
-                                                    <rect key="frame" x="92" y="29" width="149" height="26"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="19"/>
-                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                            </subviews>
-                                        </tableViewCellContentView>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                    </tableViewCell>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="UserFilesCell" textLabel="HqL-3W-DSS" style="IBUITableViewCellStyleDefault" id="o5u-QA-SPw">
-                                        <rect key="frame" x="0.0" y="112" width="375" height="44"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="o5u-QA-SPw" id="myT-3f-mp9">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="HqL-3W-DSS">
-                                                    <rect key="frame" x="15" y="0.0" width="345" height="43.5"/>
-                                                    <autoresizingMask key="autoresizingMask"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                            </subviews>
-                                        </tableViewCellContentView>
-                                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
-                                    </tableViewCell>
-                                </prototypes>
-                                <connections>
-                                    <outlet property="dataSource" destination="jBk-uV-lcn" id="UBI-18-U9g"/>
-                                    <outlet property="delegate" destination="jBk-uV-lcn" id="OrN-Ya-oFT"/>
-                                </connections>
-                            </tableView>
-                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4bb-tT-CMS">
-                                <rect key="frame" x="133.5" y="225" width="108" height="104"/>
-                                <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="No files found" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2wc-sw-F6U">
-                                        <rect key="frame" x="0.0" y="83" width="108" height="21"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <color key="textColor" red="0.1960784314" green="0.1960784314" blue="0.1960784314" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="folderEmpty" translatesAutoresizingMaskIntoConstraints="NO" id="fJp-35-JaZ" userLabel="Empty folder icon">
-                                        <rect key="frame" x="21" y="11" width="64" height="64"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    </imageView>
-                                </subviews>
-                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="108" id="WcL-ly-pAH"/>
-                                    <constraint firstAttribute="height" constant="104" id="vAt-Lj-IRm"/>
-                                </constraints>
-                            </view>
-                        </subviews>
-                        <color key="backgroundColor" red="0.96067994830000003" green="0.96084433790000001" blue="0.96066969629999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <constraints>
-                            <constraint firstItem="4bb-tT-CMS" firstAttribute="centerY" secondItem="fgM-MG-CrC" secondAttribute="centerY" id="3Vw-jW-di9"/>
-                            <constraint firstItem="oDi-8R-4qg" firstAttribute="leading" secondItem="fgM-MG-CrC" secondAttribute="leading" id="Aij-ww-C8F"/>
-                            <constraint firstItem="xNY-h4-Djs" firstAttribute="top" secondItem="oDi-8R-4qg" secondAttribute="bottom" id="ecx-Fh-2rt"/>
-                            <constraint firstAttribute="trailing" secondItem="oDi-8R-4qg" secondAttribute="trailing" id="hVU-OO-emh"/>
-                            <constraint firstItem="4bb-tT-CMS" firstAttribute="centerX" secondItem="fgM-MG-CrC" secondAttribute="centerX" id="nua-Ac-aZk"/>
-                            <constraint firstItem="oDi-8R-4qg" firstAttribute="top" secondItem="1nG-Mj-9L8" secondAttribute="bottom" id="vod-gd-CJz"/>
-                        </constraints>
-                    </view>
-                    <tabBarItem key="tabBarItem" title="User Files" image="userIcon" id="56N-TC-vbv"/>
-                    <connections>
-                        <outlet property="emptyView" destination="4bb-tT-CMS" id="IEM-EG-e0W"/>
-                        <outlet property="tableView" destination="oDi-8R-4qg" id="ZyC-aY-eK1"/>
-                        <segue destination="pQb-PC-4f4" kind="show" identifier="OpenFolder" id="5W5-ri-eEx"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="vJu-lc-mPo" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="4098" y="-851"/>
         </scene>
         <!--Select Device-->
         <scene sceneID="diO-zx-aSi">
@@ -1117,111 +1006,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Pv3-jF-QBc" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4097" y="-1576"/>
-        </scene>
-        <!--Folder Files View Controller-->
-        <scene sceneID="52N-cg-hmV">
-            <objects>
-                <viewController modalTransitionStyle="flipHorizontal" id="pQb-PC-4f4" customClass="NORFolderFilesViewController" customModule="nRFBlinky" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="Vtg-Bn-pLW"/>
-                        <viewControllerLayoutGuide type="bottom" id="hHH-Qr-DPd"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="aeS-Xt-mKi">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="qxj-UQ-AqD">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="554"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <view key="tableFooterView" contentMode="scaleToFill" id="NXl-U0-vog" userLabel="Footer">
-                                    <rect key="frame" x="0.0" y="72" width="375" height="0.0"/>
-                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                </view>
-                                <prototypes>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="FolderFilesCell" textLabel="uGZ-9j-9VZ" style="IBUITableViewCellStyleDefault" id="6Pk-xG-Di2">
-                                        <rect key="frame" x="0.0" y="28" width="375" height="44"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="6Pk-xG-Di2" id="9af-Nu-hbN">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="uGZ-9j-9VZ">
-                                                    <rect key="frame" x="15" y="0.0" width="345" height="43.5"/>
-                                                    <autoresizingMask key="autoresizingMask"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                            </subviews>
-                                        </tableViewCellContentView>
-                                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
-                                    </tableViewCell>
-                                </prototypes>
-                                <connections>
-                                    <outlet property="dataSource" destination="pQb-PC-4f4" id="gPj-oQ-xf4"/>
-                                    <outlet property="delegate" destination="pQb-PC-4f4" id="c3Z-7u-upm"/>
-                                </connections>
-                            </tableView>
-                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FMt-S6-sCe" userLabel="Empty view">
-                                <rect key="frame" x="111.5" y="249.5" width="152" height="104"/>
-                                <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="This folder is empty" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ymg-4j-SmR">
-                                        <rect key="frame" x="0.0" y="83" width="152" height="21"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <color key="textColor" red="0.1960784314" green="0.1960784314" blue="0.1960784314" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="folderEmpty" translatesAutoresizingMaskIntoConstraints="NO" id="zKI-Vh-8Fd" userLabel="Empty folder icon">
-                                        <rect key="frame" x="45" y="11" width="64" height="64"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    </imageView>
-                                </subviews>
-                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="152" id="8Xk-J4-uDb"/>
-                                    <constraint firstAttribute="height" constant="104" id="P6w-Tl-Hjo"/>
-                                </constraints>
-                            </view>
-                            <tabBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Y6g-sD-srt">
-                                <rect key="frame" x="0.0" y="554" width="375" height="49"/>
-                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="49" id="BBz-y3-Bd9"/>
-                                </constraints>
-                                <items/>
-                            </tabBar>
-                        </subviews>
-                        <color key="backgroundColor" red="0.96067994830000003" green="0.96084433790000001" blue="0.96066969629999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <constraints>
-                            <constraint firstItem="FMt-S6-sCe" firstAttribute="centerX" secondItem="aeS-Xt-mKi" secondAttribute="centerX" id="DQm-y2-N2I"/>
-                            <constraint firstItem="hHH-Qr-DPd" firstAttribute="top" secondItem="Y6g-sD-srt" secondAttribute="bottom" id="FwO-MN-vjF"/>
-                            <constraint firstItem="qxj-UQ-AqD" firstAttribute="leading" secondItem="aeS-Xt-mKi" secondAttribute="leading" id="I18-HA-QKq"/>
-                            <constraint firstItem="hHH-Qr-DPd" firstAttribute="top" secondItem="qxj-UQ-AqD" secondAttribute="bottom" constant="49" id="ZM1-W1-uQe"/>
-                            <constraint firstItem="Y6g-sD-srt" firstAttribute="leading" secondItem="aeS-Xt-mKi" secondAttribute="leading" id="Zi3-Xm-ymc"/>
-                            <constraint firstItem="qxj-UQ-AqD" firstAttribute="top" secondItem="Vtg-Bn-pLW" secondAttribute="bottom" id="bOA-uL-Ucr"/>
-                            <constraint firstAttribute="trailing" secondItem="Y6g-sD-srt" secondAttribute="trailing" id="odf-Ut-XCl"/>
-                            <constraint firstItem="FMt-S6-sCe" firstAttribute="centerY" secondItem="aeS-Xt-mKi" secondAttribute="centerY" id="pgp-pk-Add"/>
-                            <constraint firstAttribute="trailing" secondItem="qxj-UQ-AqD" secondAttribute="trailing" id="ruG-LE-UIp"/>
-                        </constraints>
-                    </view>
-                    <navigationItem key="navigationItem" id="xP9-EU-ohi">
-                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="bU0-3q-KIf">
-                            <connections>
-                                <action selector="doneButtonTapped:" destination="pQb-PC-4f4" id="2YL-ma-8pV"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
-                    <connections>
-                        <outlet property="emptyView" destination="FMt-S6-sCe" id="6jJ-gh-EnR"/>
-                        <outlet property="tableView" destination="qxj-UQ-AqD" id="EfC-2H-Zcb"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="wZR-TC-DUX" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="4881" y="-851"/>
+            <point key="canvasLocation" x="4102" y="-1239"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="PQu-zO-S7z">
@@ -1380,8 +1165,6 @@
         <image name="ConnectButtonPressed" width="163" height="48"/>
         <image name="Signal_3" width="30" height="22"/>
         <image name="appIcon" width="16" height="16"/>
-        <image name="filesHelp" width="60" height="60"/>
-        <image name="folderEmpty" width="64" height="64"/>
         <image name="ic_bluetooth_searching_48pt" width="48" height="48"/>
         <image name="ic_info" width="24" height="24"/>
         <image name="ic_lightbulb_outline_48pt" width="48" height="48"/>
@@ -1389,7 +1172,6 @@
         <image name="rssi_4" width="128" height="128"/>
         <image name="scanning" width="64" height="64"/>
         <image name="toolbar_shadow" width="2" height="7"/>
-        <image name="userIcon" width="16" height="16"/>
     </resources>
     <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
 </document>

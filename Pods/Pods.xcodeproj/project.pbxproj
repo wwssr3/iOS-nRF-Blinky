@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		01322E33B313EBAC8C9C39CF8A5E46BB /* DFUExecutor.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE2FD9613BFBE06522070EF531650A65 /* DFUExecutor.swift */; };
-		08825EF3DD0066E85187DDCBD27C253E /* ThingyManagerState.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1CAED51CD8C2F2203CA42373BAE51BC /* ThingyManagerState.swift */; };
 		098EA1C961FF0A005E9664F8CE1E4E3E /* DFUServiceSelector.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFA28D732D447D726F5768E58158CE6A /* DFUServiceSelector.swift */; };
 		0A8CC78B7D5522AFDB7660C919492110 /* ioapi.h in Headers */ = {isa = PBXBuildFile; fileRef = BE4A75AE761F8A584C45410BB6DDA8C7 /* ioapi.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		0C09D1B4C3A0DB88D07032B2E78FE8C5 /* ThingyCharacteristic.swift in Sources */ = {isa = PBXBuildFile; fileRef = B94A6DB55DD3C99B5A308BB00ABEC1EE /* ThingyCharacteristic.swift */; };
@@ -37,7 +36,6 @@
 		58C632C23C48C8DFE9E53A2C5E4BAEC5 /* Zip-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = CAFB860C268B3F9D9FF7261168D27881 /* Zip-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		59D23731034D480FC7D6B5AE2B7FDFF2 /* DFUStream.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F8FBC46DC6141A24A00E673A2C41A8E /* DFUStream.swift */; };
 		5AD48CD96339B00EF6B6AD34F0471370 /* DataExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D5D9156D49298C2398E1988D14AAFA5 /* DataExtension.swift */; };
-		5D8FCEBE415EAA8F374854085FC787EA /* ThingyPeripheralDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BE392AD7E0811D27650AF6EBC2FFF10 /* ThingyPeripheralDelegate.swift */; };
 		6454653B7C3EE76C7AF11644A935D2F1 /* DFUService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 095A1100890EFCDA8C8AC1653343375B /* DFUService.swift */; };
 		664824A193F98B342B49FF257417C50F /* ZipArchive.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77805F6B38AEC9AB1A1266D4772CD42B /* ZipArchive.swift */; };
 		69552472DBFDD7697E0FD99BD398A44E /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 39AACCF628CC65A5425EE9F82DC2B8C7 /* Foundation.framework */; };
@@ -57,7 +55,6 @@
 		941D05A452C1F2FCCFFD5A8B7A9EEF68 /* DFUStarterPeripheral.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29C637FCD6B815B1D941D6BCAA7968FF /* DFUStarterPeripheral.swift */; };
 		958479F1EB708A42D9A7FDC184B99E68 /* SecureDFUPacket.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF11F9ADC25CFF03824239D9FA81E545 /* SecureDFUPacket.swift */; };
 		975B7FB1C5BFB02E56697335FEA425D7 /* DFUFirmware.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA62327E7907FC96F78D3AE3B717DA31 /* DFUFirmware.swift */; };
-		AA6AD45D6172483071629C9A5A0FBF13 /* ThingyPeripheralState.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0F0FBF8B18C3221BEA0FC8AB50D4C7C /* ThingyPeripheralState.swift */; };
 		AAAB91159870E14AE51C0A1914D58A26 /* IOSThingyLibrary-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 3822F9814D0031DB0FC5B2A32460DEED /* IOSThingyLibrary-dummy.m */; };
 		AB12BF75ED3A5673AE7B0CD12888B5D6 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 39AACCF628CC65A5425EE9F82DC2B8C7 /* Foundation.framework */; };
 		B3013DB2565885D18384F41AE84CB8FE /* SoftdeviceBootloaderInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0613A693453302197A2EAFB4B7D1D69E /* SoftdeviceBootloaderInfo.swift */; };
@@ -86,7 +83,6 @@
 		EECC2055944AD402FC384B523811F67D /* DFUPeripheralSelector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51C9EDA0ADCD265841CED20121274C49 /* DFUPeripheralSelector.swift */; };
 		EEE56F6293B6F86444BED4CDC6234AAA /* LoggerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4355381FD971A328E1DA300B9AD9FAA1 /* LoggerDelegate.swift */; };
 		F2FA494F771CA2E00A787E20F7045DF6 /* Pods-nRFBlinky-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 27490B2CECA15B255E128014989E4C4E /* Pods-nRFBlinky-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		FA54515BC05E097B2AC162AC84950656 /* ThingyManagerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1859FEA1A2386E4DE8D7DEA9AC1A77D /* ThingyManagerDelegate.swift */; };
 		FAC332B9C56587D7115FFEBCEF64C7DE /* DFUServiceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB4F750D5F84B29C3A38B6D73FE202E4 /* DFUServiceController.swift */; };
 		FFA9186902A12675801FD8AFE7813CCD /* ThingyService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5441290019A2521CF2AA4D278D06E868 /* ThingyService.swift */; };
 /* End PBXBuildFile section */
@@ -168,7 +164,6 @@
 		4355381FD971A328E1DA300B9AD9FAA1 /* LoggerDelegate.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = LoggerDelegate.swift; path = iOSDFULibrary/Classes/Utilities/Logging/LoggerDelegate.swift; sourceTree = "<group>"; };
 		441F9176895F9ED8D23FAD69CF56DB65 /* iOSDFULibrary.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = iOSDFULibrary.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		460254D065F331708970F3F0556460FC /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		4BE392AD7E0811D27650AF6EBC2FFF10 /* ThingyPeripheralDelegate.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ThingyPeripheralDelegate.swift; sourceTree = "<group>"; };
 		51C9EDA0ADCD265841CED20121274C49 /* DFUPeripheralSelector.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = DFUPeripheralSelector.swift; path = iOSDFULibrary/Classes/Implementation/DFUPeripheralSelector.swift; sourceTree = "<group>"; };
 		53C6E3359849E95A9F77EE461361A8FC /* crypt.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = crypt.h; path = Zip/minizip/crypt.h; sourceTree = "<group>"; };
 		5441290019A2521CF2AA4D278D06E868 /* ThingyService.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ThingyService.swift; sourceTree = "<group>"; };
@@ -200,7 +195,6 @@
 		9E33C7017275C0FAE9F7D8EBAF563BEE /* DFUServiceInitiator.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = DFUServiceInitiator.swift; path = iOSDFULibrary/Classes/Implementation/DFUServiceInitiator.swift; sourceTree = "<group>"; };
 		9E8168EC5799FCF116AB8698EDAEF7FE /* Pods-nRFBlinky-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-nRFBlinky-frameworks.sh"; sourceTree = "<group>"; };
 		A0EE43AD6F3E6CAF24B636021E592697 /* LegacyDFUPeripheral.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = LegacyDFUPeripheral.swift; path = iOSDFULibrary/Classes/Implementation/LegacyDFU/Peripherals/LegacyDFUPeripheral.swift; sourceTree = "<group>"; };
-		A1CAED51CD8C2F2203CA42373BAE51BC /* ThingyManagerState.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ThingyManagerState.swift; sourceTree = "<group>"; };
 		A3AF38C28C841A757CDF4ED9CC7A547F /* DFUController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = DFUController.swift; path = iOSDFULibrary/Classes/Implementation/GenericDFU/DFUController.swift; sourceTree = "<group>"; };
 		A59D39064B1FDCBFA6C774D3CF5A5709 /* iOSDFULibrary-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "iOSDFULibrary-umbrella.h"; sourceTree = "<group>"; };
 		A6CFA6EF1A35591832EA4CB79B748906 /* DFUStreamZip.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = DFUStreamZip.swift; path = iOSDFULibrary/Classes/Utilities/Streams/DFUStreamZip.swift; sourceTree = "<group>"; };
@@ -234,8 +228,6 @@
 		DBE067DCE08BFCF44DBCE21132C58858 /* Pods-nRFBlinky-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-nRFBlinky-acknowledgements.plist"; sourceTree = "<group>"; };
 		DD83FE45AEEC00A3540450C0660387B7 /* Zip.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Zip.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DF3BFE51FDA4DF2FEB834E1A1EFE8480 /* Pods-nRFBlinky.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-nRFBlinky.release.xcconfig"; sourceTree = "<group>"; };
-		E0F0FBF8B18C3221BEA0FC8AB50D4C7C /* ThingyPeripheralState.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ThingyPeripheralState.swift; sourceTree = "<group>"; };
-		E1859FEA1A2386E4DE8D7DEA9AC1A77D /* ThingyManagerDelegate.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ThingyManagerDelegate.swift; sourceTree = "<group>"; };
 		E4161C7A855544C39C80CBD1B8CA06A3 /* SecureDFUControlPoint.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SecureDFUControlPoint.swift; path = iOSDFULibrary/Classes/Implementation/SecureDFU/Characteristics/SecureDFUControlPoint.swift; sourceTree = "<group>"; };
 		EA62327E7907FC96F78D3AE3B717DA31 /* DFUFirmware.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = DFUFirmware.swift; path = iOSDFULibrary/Classes/Implementation/Firmware/DFUFirmware.swift; sourceTree = "<group>"; };
 		EC91CDC35E78345CBC610CE5070CB7D9 /* DFUPeripheralSelectorDelegate.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = DFUPeripheralSelectorDelegate.swift; path = iOSDFULibrary/Classes/Implementation/DFUPeripheralSelectorDelegate.swift; sourceTree = "<group>"; };
@@ -326,8 +318,9 @@
 				D73E05AC6019DC2CB8CBD0E99D77B9D1 /* Helpers */,
 				CDF2FC0E8BEDD76D9D4DA09C663D94AD /* Manager */,
 				B3932ACCE0D51CD31E641F35545EAE30 /* Peripheral */,
-				D6195A6CEC42BD48710950F3991C1CA5 /* Pod */,
+				4141101752C77C81CF5F4CFBFCFF5B17 /* Characteristics */,
 				92C32AC007DB87A07ED50E479E38D0B7 /* Services */,
+				D6195A6CEC42BD48710950F3991C1CA5 /* Pod */,
 				0FF61D004D1700FC4C900E46543BE4D5 /* Support Files */,
 			);
 			name = IOSThingyLibrary;
@@ -398,8 +391,8 @@
 		92C32AC007DB87A07ED50E479E38D0B7 /* Services */ = {
 			isa = PBXGroup;
 			children = (
-				F95499E50C7AB8924F198EF8FE987E66 /* SoundService */,
-				FAC08543DA2C0BF5E714C96EBADA3B93 /* ThingyService */,
+				17CFEBD33C09B4927E67718331C834F9 /* ThingySoundService.swift */,
+				5441290019A2521CF2AA4D278D06E868 /* ThingyService.swift */,
 			);
 			name = Services;
 			path = IOSThingyLibrary/Classes/Services;
@@ -409,8 +402,6 @@
 			isa = PBXGroup;
 			children = (
 				5C49A64092EE4B050AA7C491BF53AEDA /* ThingyPeripheral.swift */,
-				4BE392AD7E0811D27650AF6EBC2FFF10 /* ThingyPeripheralDelegate.swift */,
-				E0F0FBF8B18C3221BEA0FC8AB50D4C7C /* ThingyPeripheralState.swift */,
 			);
 			name = Peripheral;
 			path = IOSThingyLibrary/Classes/Peripheral;
@@ -438,8 +429,6 @@
 			isa = PBXGroup;
 			children = (
 				7D9E1F74AEAEC3564B2FE4FC47741272 /* ThingyManager.swift */,
-				E1859FEA1A2386E4DE8D7DEA9AC1A77D /* ThingyManagerDelegate.swift */,
-				A1CAED51CD8C2F2203CA42373BAE51BC /* ThingyManagerState.swift */,
 			);
 			name = Manager;
 			path = IOSThingyLibrary/Classes/Manager;
@@ -546,23 +535,6 @@
 				19FF3955DB879DE3C98EE8BB9541D645 /* Support Files */,
 			);
 			path = Zip;
-			sourceTree = "<group>";
-		};
-		F95499E50C7AB8924F198EF8FE987E66 /* SoundService */ = {
-			isa = PBXGroup;
-			children = (
-				17CFEBD33C09B4927E67718331C834F9 /* ThingySoundService.swift */,
-			);
-			path = SoundService;
-			sourceTree = "<group>";
-		};
-		FAC08543DA2C0BF5E714C96EBADA3B93 /* ThingyService */ = {
-			isa = PBXGroup;
-			children = (
-				5441290019A2521CF2AA4D278D06E868 /* ThingyService.swift */,
-				4141101752C77C81CF5F4CFBFCFF5B17 /* Characteristics */,
-			);
-			path = ThingyService;
 			sourceTree = "<group>";
 		};
 		FD610E25B0D5F515B7F5C094C473E0F8 /* Targets Support Files */ = {
@@ -730,11 +702,7 @@
 				AAAB91159870E14AE51C0A1914D58A26 /* IOSThingyLibrary-dummy.m in Sources */,
 				0C09D1B4C3A0DB88D07032B2E78FE8C5 /* ThingyCharacteristic.swift in Sources */,
 				45C91C8BFED7C4969ECADD84A552DBCA /* ThingyManager.swift in Sources */,
-				FA54515BC05E097B2AC162AC84950656 /* ThingyManagerDelegate.swift in Sources */,
-				08825EF3DD0066E85187DDCBD27C253E /* ThingyManagerState.swift in Sources */,
 				B893AF0C2512B62B5ED7ADC56A30E3CB /* ThingyPeripheral.swift in Sources */,
-				5D8FCEBE415EAA8F374854085FC787EA /* ThingyPeripheralDelegate.swift in Sources */,
-				AA6AD45D6172483071629C9A5A0FBF13 /* ThingyPeripheralState.swift in Sources */,
 				FFA9186902A12675801FD8AFE7813CCD /* ThingyService.swift in Sources */,
 				B745D334A561071130CD4797DF65418D /* ThingySoundService.swift in Sources */,
 				85C9EA9E3694A95810EB1A502D041D05 /* ThingyUUIDs.swift in Sources */,

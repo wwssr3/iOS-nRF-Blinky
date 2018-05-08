@@ -8,6 +8,10 @@
 
 import UIKit
 
+@objc protocol NORFileSelectionDelegate {
+    func onFileSelected(withURL aFileURL : URL)
+}
+
 class NORAppFilesViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
     //MARK: - Class Properties
