@@ -184,7 +184,7 @@ class BlinkyPeripheral: NSObject, CBPeripheralDelegate {
         if characteristic == BlinkyPeripheral.SOUND_CHARACTERISTIC {
             print("didUpdateValueFor SOUND_CHARACTERISTIC")
         }
-        if characteristic == soundCharacteristic {
+        else if characteristic == soundCharacteristic {
             if let aValue = characteristic.value {
                 didReceiveSoundCharacteristicUpdateWithValue(aValue)
             }
@@ -192,16 +192,20 @@ class BlinkyPeripheral: NSObject, CBPeripheralDelegate {
             if let aValue = characteristic.value {
                 didWriteValueToLED(aValue)
             }
+        } else if characteristic == txCharacteristic {
+            print(characteristic.value! as Data)
         }
     }
 
     func peripheral(_ peripheral: CBPeripheral, didUpdateNotificationStateFor characteristic: CBCharacteristic, error: Error?) {
         if characteristic.uuid == soundCharacteristic?.uuid {
             print("Notification state is now \(characteristic.isNotifying) for Button characteristic")
-            readButtonValue()
-            readLEDValue()
-        } else {
+//            readButtonValue()
+//            readLEDValue()
+        } else if characteristic.uuid == BlinkyPeripheral.Nordic_UART_TX_Characteristic {
             writeBabyPhoneThreshold()
+//            writeSystemTime()
+        } else {
             print("Notification state is now \(characteristic.isNotifying) for an unknown characteristic with UUID: \(characteristic.uuid.uuidString)")
         }
     }
@@ -250,12 +254,14 @@ class BlinkyPeripheral: NSObject, CBPeripheralDelegate {
                     break
                 case BlinkyPeripheral.Nordic_UART_RX_Characteristic:
 
+                    
                     rxCharacteristic = aCharacteristic
                     
-                    writeBabyPhoneThreshold ()
                     break
                 case BlinkyPeripheral.Nordic_UART_TX_Characteristic:
-                    peripheral.setNotifyValue(true, for: aCharacteristic)
+                    txCharacteristic = aCharacteristic
+                    peripheral.setNotifyValue(true, for: txCharacteristic!)
+
                 default:
                     break
                 }
@@ -264,6 +270,8 @@ class BlinkyPeripheral: NSObject, CBPeripheralDelegate {
         }
         
     }
+    
+    
     
     func peripheral(_ peripheral: CBPeripheral, didDiscoverDescriptorsFor characteristic: CBCharacteristic, error: Error?) {
         print("didDiscoverDescriptorsFor \(characteristic)")
@@ -276,13 +284,14 @@ class BlinkyPeripheral: NSObject, CBPeripheralDelegate {
         }
     }
     
+    
     func peripheral(_ peripheral: CBPeripheral, didUpdateValueFor descriptor: CBDescriptor, error: Error?) {
         print("didUpdateValueFor \(descriptor)")
         
     }
     func peripheral(_ peripheral: CBPeripheral, didWriteValueFor characteristic: CBCharacteristic, error: Error?) {
         if characteristic == BlinkyPeripheral.Nordic_UART_TX_Characteristic {
-            print(characteristic.value)
+            print(characteristic.value! as Data)
         }
     }
     

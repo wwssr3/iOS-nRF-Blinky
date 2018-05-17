@@ -30,19 +30,7 @@ class SoundServiceViewController: UIViewController, ThingyPeripheralDelegate, UI
         self.targetPeripheral?.delegate = self
     }
     
-    private func startReceivingMicrophone() {
-        targetPeripheral?.beginMicrophoneUpdates(withCompletionHandler: { success in
-            if success {
-                print("Microphone updates enabled")
-                print("Starting playing...")
-                self.startPlaying()
-            } else {
-                print("Microphone updates failed to start")
-            }
-        }, andNotificationHandler: { (pcm16Data) -> (Void) in
-            self.schedule(pcm16Data: pcm16Data)
-        })
-    }
+    
     //MARK: - Thingy API
     func thingyPeripheral(_ peripheral: ThingyPeripheral, didChangeStateTo state: ThingyPeripheralState) {
         
@@ -133,6 +121,23 @@ class SoundServiceViewController: UIViewController, ThingyPeripheralDelegate, UI
     @IBAction func btnClicked(_ sender: Any) {
         
         startReceivingMicrophone()
+    }
+    
+    @IBAction func babyPhoneThreadValueChanged(_ sender: Any) {
+        targetPeripheral?.setBabyPhoneThread()
+    }
+    private func startReceivingMicrophone() {
+        targetPeripheral?.beginMicrophoneUpdates(withCompletionHandler: { success in
+            if success {
+                print("Microphone updates enabled")
+                print("Starting playing...")
+                self.startPlaying()
+            } else {
+                print("Microphone updates failed to start")
+            }
+        }, andNotificationHandler: { (pcm16Data) -> (Void) in
+            self.schedule(pcm16Data: pcm16Data)
+        })
     }
     
     @IBAction func stop(_ sender: Any) {
