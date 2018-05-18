@@ -14,6 +14,7 @@
 		0D9F7CCBFC8144496C156C61020F26B6 /* DFUPeripheralDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8C72F3597CFA7A4B5C3837BC227195B /* DFUPeripheralDelegate.swift */; };
 		0FC0B9F2D6FC5740273559C790C9B4EE /* LegacyDFUPeripheral.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0EE43AD6F3E6CAF24B636021E592697 /* LegacyDFUPeripheral.swift */; };
 		10684EC843B5094D5E974B134A677717 /* DFUPeripheral.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFBC5A0972F6325EDF71AA3A9A47E114 /* DFUPeripheral.swift */; };
+		10F115DC20AECB5F00DE45F1 /* UARTService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10F115DB20AECB5F00DE45F1 /* UARTService.swift */; };
 		15CB30AF7FDA60B14201718F7A3828F1 /* SecureDFUServiceInitiator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FA2C36C30F575C64A28502CC5D76ECA /* SecureDFUServiceInitiator.swift */; };
 		1C54A6B77203286061C3EA6504E8C610 /* ManifestFirmwareInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A0D3F4FE4AA458B588D30C851E486BE /* ManifestFirmwareInfo.swift */; };
 		1C845F8441007558AE7386064FE833AD /* zip.c in Sources */ = {isa = PBXBuildFile; fileRef = CB90E5842220FDAF302BBB2417669B24 /* zip.c */; };
@@ -139,6 +140,7 @@
 		0613A693453302197A2EAFB4B7D1D69E /* SoftdeviceBootloaderInfo.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SoftdeviceBootloaderInfo.swift; path = iOSDFULibrary/Classes/Utilities/DFUPackage/Manifest/SoftdeviceBootloaderInfo.swift; sourceTree = "<group>"; };
 		095A1100890EFCDA8C8AC1653343375B /* DFUService.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = DFUService.swift; path = iOSDFULibrary/Classes/Implementation/GenericDFU/DFUService.swift; sourceTree = "<group>"; };
 		0ABF6263DF0692B8A843EA25163CE09A /* iOSDFULibrary.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = iOSDFULibrary.xcconfig; sourceTree = "<group>"; };
+		10F115DB20AECB5F00DE45F1 /* UARTService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UARTService.swift; sourceTree = "<group>"; };
 		13A8DCE55D0928E685A2C069382977A6 /* SecureDFUExecutor.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SecureDFUExecutor.swift; path = iOSDFULibrary/Classes/Implementation/SecureDFU/DFU/SecureDFUExecutor.swift; sourceTree = "<group>"; };
 		14796B03748B0208DC8D748F26AD6FFE /* DFUPacket.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = DFUPacket.swift; path = iOSDFULibrary/Classes/Implementation/LegacyDFU/Characteristics/DFUPacket.swift; sourceTree = "<group>"; };
 		17CFEBD33C09B4927E67718331C834F9 /* ThingySoundService.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ThingySoundService.swift; sourceTree = "<group>"; };
@@ -393,6 +395,7 @@
 			children = (
 				17CFEBD33C09B4927E67718331C834F9 /* ThingySoundService.swift */,
 				5441290019A2521CF2AA4D278D06E868 /* ThingyService.swift */,
+				10F115DB20AECB5F00DE45F1 /* UARTService.swift */,
 			);
 			name = Services;
 			path = IOSThingyLibrary/Classes/Services;
@@ -704,6 +707,7 @@
 				45C91C8BFED7C4969ECADD84A552DBCA /* ThingyManager.swift in Sources */,
 				B893AF0C2512B62B5ED7ADC56A30E3CB /* ThingyPeripheral.swift in Sources */,
 				FFA9186902A12675801FD8AFE7813CCD /* ThingyService.swift in Sources */,
+				10F115DC20AECB5F00DE45F1 /* UARTService.swift in Sources */,
 				B745D334A561071130CD4797DF65418D /* ThingySoundService.swift in Sources */,
 				85C9EA9E3694A95810EB1A502D041D05 /* ThingyUUIDs.swift in Sources */,
 			);

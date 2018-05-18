@@ -124,7 +124,29 @@ class SoundServiceViewController: UIViewController, ThingyPeripheralDelegate, UI
     }
     
     @IBAction func babyPhoneThreadValueChanged(_ sender: Any) {
-        targetPeripheral?.setBabyPhoneThread()
+        targetPeripheral?.setBabyPhoneThread(aHandler: { (data) -> (Void) in
+            
+            var messge = ""
+            var scuess = "fail"
+            for int in data {
+                if int == 0x81 {scuess = "scuess"}
+                messge += String.init(int, radix: 16, uppercase: false)
+            }
+
+            let alertController = UIAlertController(title: scuess,
+                                                    message: messge, preferredStyle: .alert)
+            let cancelAction = UIAlertAction(title: "ok", style: .cancel, handler: nil)
+            
+            alertController.addAction(cancelAction)
+
+            self.present(alertController, animated: true, completion: nil)
+        })
+    }
+    @IBAction func apneaSensitivityChanged(_ sender: Any) {
+        
+    }
+    @IBAction func updateSystemTime(_ sender: Any) {
+        targetPeripheral?.updateSystemTime()
     }
     private func startReceivingMicrophone() {
         targetPeripheral?.beginMicrophoneUpdates(withCompletionHandler: { success in
