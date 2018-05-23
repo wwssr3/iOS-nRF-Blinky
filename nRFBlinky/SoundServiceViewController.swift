@@ -12,7 +12,7 @@ import AVFoundation
 import IOSThingyLibrary
 import CoreBluetooth
 
-class SoundServiceViewController: UIViewController, ThingyPeripheralDelegate, UITableViewDelegate, UITableViewDataSource {
+class SoundServiceViewController: UIViewController, ThingyPeripheralDelegate, UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate {
     
     var targetPeripheral : ThingyPeripheral?
     
@@ -28,6 +28,28 @@ class SoundServiceViewController: UIViewController, ThingyPeripheralDelegate, UI
         super.viewDidLoad()
 
         self.targetPeripheral?.delegate = self
+        
+        udiTextView.delegate = self
+        pairCodetextView.delegate = self
+        udiTextView.returnKeyType  = UIReturnKeyType.done
+        pairCodetextView.returnKeyType  = UIReturnKeyType.done
+        targetPeripheral?.enableNotify(aHandler: { (data) in
+            
+            var messge = ""
+            var scuess = "fail"
+            for int in data {
+                if int == 0x81 {scuess = "scuess"}
+                messge += String.init(int, radix: 16, uppercase: false)
+            }
+            
+            let alertController = UIAlertController(title: scuess,
+                                                    message: messge, preferredStyle: .alert)
+            let cancelAction = UIAlertAction(title: "ok", style: .cancel, handler: nil)
+            
+            alertController.addAction(cancelAction)
+            
+            self.present(alertController, animated: true, completion: nil)
+        })
     }
     
     
@@ -43,9 +65,8 @@ class SoundServiceViewController: UIViewController, ThingyPeripheralDelegate, UI
             
             discoveredServices = peripheral.basePeripheral.services!
             tableView.reloadData()
+//            startReceivingMicrophone()
 
-            startReceivingMicrophone()
-            
             break
         default:
             break
@@ -123,31 +144,55 @@ class SoundServiceViewController: UIViewController, ThingyPeripheralDelegate, UI
         startReceivingMicrophone()
     }
     
-    @IBAction func babyPhoneThreadValueChanged(_ sender: Any) {
-        targetPeripheral?.setBabyPhoneThread(aHandler: { (data) -> (Void) in
-            
-            var messge = ""
-            var scuess = "fail"
-            for int in data {
-                if int == 0x81 {scuess = "scuess"}
-                messge += String.init(int, radix: 16, uppercase: false)
-            }
-
-            let alertController = UIAlertController(title: scuess,
-                                                    message: messge, preferredStyle: .alert)
-            let cancelAction = UIAlertAction(title: "ok", style: .cancel, handler: nil)
-            
-            alertController.addAction(cancelAction)
-
-            self.present(alertController, animated: true, completion: nil)
-        })
+    @IBAction func readthreadhold(_ sender: Any) {
+        targetPeripheral?.getBabyPhoneThread()
     }
-    @IBAction func apneaSensitivityChanged(_ sender: Any) {
+    @IBAction func getApnae(_ sender: Any) {
+        targetPeripheral?.getApneaSensitivity()
+    }
+    @IBAction func getPairCode(_ sender: Any) {
+        targetPeripheral?.getPairCode()
+    }
+    @IBAction func getUDI(_ sender: Any) {
+        targetPeripheral?.getUDI()
+    }
+    @IBAction func getEventLog(_ sender: Any) {
+        targetPeripheral?.getEventLog()
+    }
+    
+    @IBAction func getDeviceInfo(_ sender: Any) {
+        targetPeripheral?.getDeviceInformation()
+    }
+    
+    @IBAction func babyPhoneThreadValueChanged(_ sender: UISlider) {
         
+        targetPeripheral?.setBabyPhoneThread(threshold: UInt(sender.value + 256))
     }
+    
+    @IBAction func apneaSensitivityChanged(_ sender: UISlider) {
+        print(UInt(sender.value))
+        targetPeripheral?.setApneaSensitivity(sensitivity: UInt(sender.value))
+    }
+    
+    @IBAction func setBabyPositionAlert(_ sender: UISwitch) {
+        targetPeripheral?.setBabyPositionAlert(enable: sender.isOn ? 0x01 : 0x00)
+    }
+    
     @IBAction func updateSystemTime(_ sender: Any) {
-        targetPeripheral?.updateSystemTime()
+        targetPeripheral?.setSystemTime()
     }
+    @IBOutlet weak var pairCodetextView: UITextField!
+    @IBAction func setPairCode(_ sender: Any) {
+        pairCodetextView.text = "123456"
+        targetPeripheral?.setPairCode(code: pairCodetextView.text!)
+    }
+    
+    @IBOutlet weak var udiTextView: UITextField!
+    @IBAction func setUDI(_ sender: Any) {
+        udiTextView.text = "1111111111111111"
+        targetPeripheral?.setUDI(udi: Int(udiTextView.text!)!)
+    }
+    
     private func startReceivingMicrophone() {
         targetPeripheral?.beginMicrophoneUpdates(withCompletionHandler: { success in
             if success {
@@ -168,5 +213,10 @@ class SoundServiceViewController: UIViewController, ThingyPeripheralDelegate, UI
                 
             }
         })
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
     }
 }
